@@ -1,0 +1,22 @@
+[book]
+authors = ["Matt Coley"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Recaf Documentation"
+
+[output.html]
+additional-js = ["src/assets/mermaid.min.js", "src/assets/mermaid-init.js"]
+
+# Installed via:
+#   cargo install mdbook-emojicodes
+# or
+#   git clone https://github.com/blyxyas/mdbook-emojicodes
+#   cd mdbook-emojicodes
+#   cargo install --path .
+[preprocessor.emojicodes] 
+
+# Installed via:
+#   cargo install mdbook-mermaid
+[preprocessor.mermaid]
+command = "mdbook-mermaid"

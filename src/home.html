@@ -1,0 +1,310 @@
+<html lang="en" class="coal" dir="ltr"><head>
+	<title>Recaf</title>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="java,bytecode,editor,recaf,reverse engineering">
+	
+	<meta name="description" content="Recaf is a modern java bytecode editor using Objectweb's ASM and JavaFX.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="rgb(19, 21, 22)">
+	
+	<!-- Icon -->
+	<link rel="icon" href="favicon.svg">
+	<link rel="shortcut icon" href="favicon.png">
+	
+	<!-- General style -->
+	<link rel="stylesheet" href="css/variables.css">
+	<link rel="stylesheet" href="css/general.css">
+	<link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+	<link rel="stylesheet" href="fonts/fonts.css">
+	<link rel="stylesheet" href="highlight.css" disabled="">
+	<link rel="stylesheet" href="tomorrow-night.css">
+	<link rel="stylesheet" href="ayu-highlight.css" disabled="">
+</head>
+<body>
+
+<div id="navbar-section">
+<style>
+.navbar {
+  font-size: 18px;
+
+  background: #000;
+  background: -webkit-linear-gradient(to bottom left, #001831, #000);
+  background:  linear-gradient(to bottom left, #001831, #000);
+  
+  border-bottom: 1px solid rgb(50, 55, 60);  
+}
+
+.main-nav {
+  list-style-type: none;
+  display: none;
+}
+
+.logo {
+  text-decoration: none;
+  height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.nav-links {
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  display: inline-block;
+  width: 100%;
+}
+
+.main-nav li {
+  text-align: center;
+  margin: 15px auto;
+}
+
+.logo {
+  display: flex;
+  font-size: 22px;
+  object-fit: contain;
+  margin-left: 10px;
+}
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 26px;
+  top: 20px;
+  right: 20px;
+}
+
+#chkToggle {
+  display: none;
+}
+
+#chkToggle:checked + ul.main-nav {
+  display: block;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.main-nav > a,
+.main-nav > a:visited {
+  text-decoration: none;
+  color: white;
+}
+.main-nav > a:hover {
+  text-decoration: none;
+  color: rgb(200, 200, 255);
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    height: 70px;
+    align-items: center;
+	width: 100%;
+  }
+
+  #chkToggle:checked + ul.main-nav {
+    display: flex;
+  }
+
+  .main-nav {
+    display: flex;
+    margin-right: 50px;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .main-nav li {
+    margin: 0;
+  }
+
+  .nav-links {
+    margin-left: 40px;
+  }
+
+  .logo {
+    margin-top: 0;
+	aspect-ratio: 3;
+  }
+
+  .navbar-toggle {
+    display: none;
+  }
+
+  .logo:hover,
+  .nav-links:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .title {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+}
+</style>
+<nav class="navbar">
+    <label class="navbar-toggle" id="js-navbar-toggle" for="chkToggle">
+            <i class="fa fa-bars"></i>
+        </label>
+    <div class="logo"><img src="assets/logo.png"/><span class="title">Recaf</span></div>
+    <input type="checkbox" id="chkToggle"></input>
+    <ul class="main-nav" id="js-menu">
+      <li>
+        <a href="#" class="nav-links">Features</a>
+      </li>
+      <li>
+        <a href="user/index.html" class="nav-links">User Guide</a>
+      </li>
+      <li>
+        <a href="dev/index.html" class="nav-links">Developer Guide</a>
+      </li>
+      <li>
+        <a href="https://github.com/Col-E/Recaf" class="nav-links">GitHub</a>
+      </li>
+      <li>
+        <a href="https://discord.gg/Bya5HaA" class="nav-links">Discord</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div id="overview-section">
+	<style>
+#overview-section img {
+  max-width: 90vw;
+
+  -webkit-box-shadow: 0.25em 0.25em 2em rgba(0, 0, 0, 0.25);
+          box-shadow: 0.25em 0.25em 2em rgba(0, 0, 0, 0.25);
+}
+
+#overview-section h2 {
+   margin-top: 0;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+  padding: 1vh;
+}
+.flex-container:nth-child(odd) {
+  background: rgb(15, 17, 17);
+  border-top: 1px solid rgb(50, 55, 60);
+  border-bottom: 1px solid rgb(50, 55, 60);
+}
+.flex-item {
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+  padding: 1vh;
+}
+
+.desktop-only {
+  display: none;  
+}
+
+@media screen and (min-width: 768px) {
+  #overview-section img {
+    max-width: 50vw;
+  }
+  .flex-container {
+    flex-direction: row;
+    padding: 3vh;
+  }
+  .flex-container:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .flex-item {
+    padding: 3vh;
+  }
+  
+  #comment-hover img:last-child {
+    display: none;  
+  }
+  #comment-hover:hover img:last-child {
+    display: block;  
+  }
+  #comment-hover:hover img:first-child {
+    display: none;  
+  }
+  
+  .desktop-only {
+    display: inherit;  
+  }
+}
+	</style>
+	<div class="flex-container">
+	  <div class="flex-item">
+		<h2>Recaf</h2>
+		<p>Recaf is an open-source Java bytecode editor that simplifies the process of editing compiled Java applications. To make things easier Recaf abstracts away much of the <a href="https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html">class file format</a>. Difficult tasks such as updating stack-frames are done automatically. Along with additional features to assist in the process of editing classes, Recaf is the most feature-rich free bytecode editor available.</p>
+	  </div>
+	  <div class="flex-item">
+	    <img src="assets/class-decomp-view.png"/>
+      </div>
+	</div>
+	
+    <div class="flex-container">
+	  <div class="flex-item">
+		<h2>Attach to running processes</h2>
+		<p>Using the <a href="https://docs.oracle.com/en/java/javase/22/docs/api/jdk.attach/com/sun/tools/attach/package-summary.html">attach API</a> Recaf can connect to already running Java processes. A list of discovered JVMs is displayed on the left, and clicking on one of them shows more details about the process. When connected, Recaf can view and transform classes loaded into the JVM.</p>
+	  </div>
+	  <div class="flex-item">
+	    <img src="assets/attach-list-mc.png"/>
+      </div>
+	</div>
+	
+	<div class="flex-container">
+	  <div class="flex-item">
+		<h2>Comment management</h2>
+		<p>Documenting unfamiliar code can serve multiple purposes. In a normal application, comments can summarize what the purpose of a class, field, or method is, but when reverse engineering an unknown application they can serve more unique purposes. For instance you can use the commenting feature as a way of leaving bookmarks to areas you would like to revisit later.</p>
+		<p class="desktop-only">Hover over the image to see how Recaf takes your comments and injects them into decompiler output.</p>
+	  </div>
+	  <div class="flex-item" id="comment-hover">
+	    <img class="small-img" src="assets/analysis-comments-list.png"/>
+		<img class="small-img" src="assets/class-inline-comments.png"/>
+      </div>
+	</div>
+</div>
+
+<!--
+<div id="download-section">
+	<style>
+#download-section button {
+  font-size: 20px;
+  padding: 20px 40px;
+  background: linear-gradient(to bottom left, #001831, #000);
+  border: 1px solid rgb(50, 55, 60);
+  border-radius: 40px;
+  
+  -webkit-transition: all 1s;
+        transition: all 1s; 
+}
+#download-section button:hover {
+  background: linear-gradient(to bottom left, #11569d, #020204);
+  border: 1px solid rgb(86, 119, 153);
+}
+	</style>
+	<br><br><br>
+	<center><button>Download</button></center>
+	<br><br><br>
+</div>
+-->
+
+</body>
+</html>

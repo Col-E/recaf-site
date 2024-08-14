@@ -1,0 +1,42 @@
+# Misc
+
+A collection of unsorted utilities.
+
+- AccessFlag
+- AccessPatcher
+- BlwUtil
+- ByteHeaderUtil
+- CancelSignal
+- [ClassDefiner](misc/classdefiner.md)
+- ClassLoaderInternals
+- ClasspathUtil
+- CollectionUtil
+- DesktopUtil
+- DevDetection
+- EscapeUtil
+- Handles
+- InternalPath
+- IOUtil
+- JavaVersion
+- JigsawUtil
+- Keywords
+- LookupUtil
+- MemoizedFunctions
+- ModulesIOUtil
+- MultiMap
+- MultiMapBuilder
+- NumberUtil
+- PlatformType
+- ReflectUtil
+- RegexUtil
+- ResourceUtil
+- SelfReferenceUtil
+- ShortcutUtil
+- Streams
+- StringDiff
+- StringUtil
+- TestEnvironment
+- Types
+- UnsafeIO
+- UnsafeUtil
+- ZipCreationUtils
