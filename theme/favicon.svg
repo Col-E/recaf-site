@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="13.507 12.22 249.187 249.596" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="71.422" cy="81.218" r="122.334" id="gradient-0" gradientTransform="matrix(-0.528573, 1.653559, -1.649197, -0.527178, 228.935074, -17.636563)">
+      <stop offset="0" style="stop-color: rgb(131, 213, 255);"/>
+      <stop offset="1" style="stop-color: color(srgb-linear 0.006 0.004 0.143);"/>
+    </radialGradient>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="-13.415" cy="262.645" r="122.334" id="gradient-1" gradientTransform="matrix(0.19208, 1.978435, -1.626657, 0.157928, 481.435871, 37.810443)">
+      <stop offset="0" style="stop-color: rgb(117, 179, 255);"/>
+      <stop offset="1" style="stop-color: rgb(2, 26, 59);"/>
+    </radialGradient>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="108.602" cy="49.926" r="56.419" id="gradient-2" gradientTransform="matrix(0.665969, 2.898781, -3.189634, 0.73279, 194.360907, -280.01846)">
+      <stop offset="0" style="stop-color: rgb(255, 255, 255);"/>
+      <stop offset="1" style="stop-color: rgb(137, 145, 157);"/>
+    </radialGradient>
+    <filter id="drop-shadow-filter-0" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="drop-shadow 1 4 5 4 0.51 #0d0024">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="4" dy="5"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="spread-ctrl" type="linear" slope="1.02"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#0d0024"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style bx:fonts="Bebas Neue">@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue%3Aital%2Cwght%400%2C400&amp;display=swap);</style>
+  </defs>
+  <ellipse style="paint-order: fill; fill-rule: nonzero; stroke: url('#gradient-1'); fill: url('#gradient-0'); stroke-width: 3px;" cx="138.046" cy="136.924" rx="122.334" ry="122.334"/>
+  <text style="fill: url('#gradient-2'); font-family: 'Bebas Neue'; font-size: 280px; stroke: rgb(255, 255, 255); stroke-width: 2px; white-space: pre; filter: url('#drop-shadow-filter-0');" x="85.859" y="234.007">R</text>
+</svg>
