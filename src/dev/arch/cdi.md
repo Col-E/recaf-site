@@ -6,7 +6,7 @@ Recaf as an application is a CDI container. This facilitates dependency injectio
 
 If you are unfamiliar with dependency injection (DI) and DI frameworks, watch this video. It covers example cases where using DI makes sense, and how DI frameworks are used. While the series the video belongs to is for Dagger, the ideas apply globally to all DI frameworks.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ZZ_qek0hGkM?si=QN6ysYmO1xovzNHJ" title="Video with examples covering 'what is DI?' and 'when to use DI?'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe class="yt" src="https://www.youtube-nocookie.com/embed/ZZ_qek0hGkM?si=QN6ysYmO1xovzNHJ" title="Video with examples covering 'what is DI?' and 'when to use DI?'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## What is CDI though?
 
