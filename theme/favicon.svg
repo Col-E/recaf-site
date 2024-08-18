@@ -26,8 +26,7 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <style bx:fonts="Bebas Neue">@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue%3Aital%2Cwght%400%2C400&amp;display=swap);</style>
   </defs>
   <ellipse style="paint-order: fill; fill-rule: nonzero; stroke: url('#gradient-1'); fill: url('#gradient-0'); stroke-width: 3px;" cx="138.046" cy="136.924" rx="122.334" ry="122.334"/>
-  <text style="fill: url('#gradient-2'); font-family: 'Bebas Neue'; font-size: 280px; stroke: rgb(255, 255, 255); stroke-width: 2px; white-space: pre; filter: url('#drop-shadow-filter-0');" x="85.859" y="234.007">R</text>
+  <path d="M 97.339 38.007 L 142.979 38.007 Q 166.779 38.007 177.699 49.067 Q 188.619 60.127 188.619 83.087 L 188.619 95.127 Q 188.619 125.647 168.459 133.767 L 168.459 134.327 Q 179.659 137.687 184.279 148.047 Q 188.899 158.407 188.899 175.767 L 188.899 210.207 Q 188.899 218.607 189.459 223.787 Q 190.019 228.967 192.259 234.007 L 160.899 234.007 Q 159.219 229.247 158.659 225.047 Q 158.099 220.847 158.099 209.927 L 158.099 174.087 Q 158.099 160.647 153.759 155.327 Q 149.419 150.007 138.779 150.007 L 128.139 150.007 L 128.139 234.007 L 97.339 234.007 Z M 139.339 122.007 Q 148.579 122.007 153.199 117.247 Q 157.819 112.487 157.819 101.287 L 157.819 86.167 Q 157.819 75.527 154.039 70.767 Q 150.259 66.007 142.139 66.007 L 128.139 66.007 L 128.139 122.007 Z" style="fill: url('#gradient-2'); stroke: rgb(255, 255, 255); stroke-width: 2px; filter: url('#drop-shadow-filter-0');"/>
 </svg>
