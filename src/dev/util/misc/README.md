@@ -7,7 +7,7 @@ A collection of unsorted utilities.
 - BlwUtil
 - ByteHeaderUtil
 - CancelSignal
-- [ClassDefiner](misc/classdefiner.md)
+- [ClassDefiner](classdefiner.md)
 - ClassLoaderInternals
 - ClasspathUtil
 - CollectionUtil
