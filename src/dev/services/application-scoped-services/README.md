@@ -16,9 +16,9 @@ These are the services defined in the `core` module.
 * [MappingFormatManager](mappingformatmanager.md)
 * [MappingGenerator](mappinggenerator.md)
 * [MappingListeners](mappinglisteners.md)
-* NameGeneratorProviders
-* PatchApplier
-* PatchProvider
+* [NameGeneratorProviders](namegeneratorproviders.md)
+* [PatchApplier](patchapplier.md)
+* [PatchProvider](patchprovider.md)
 * [PhantomGenerator](phantomgenerator.md)
 * PluginManager
 * [ResourceImporter](resourceimporter.md)
@@ -39,9 +39,9 @@ The `ui` module defines a number of new service types dedicated to UI behavior.
   * TextProviderService
 * ConfigComponentManager
 * ConfigIconManager
-* FileTypeAssociationService
+* FileTypeSyntaxAssociationService
 * NavigationManager
-* PathExportingManager
+* [PathExportingManager](pathexportingmanager.md)
 * [PathLoadingManager](pathloadingmanager.md)
 * [ResourceSummaryService](resourcesummaryservice.md)
 * WindowFactory
