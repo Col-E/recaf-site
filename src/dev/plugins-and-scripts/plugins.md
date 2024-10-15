@@ -4,6 +4,8 @@
 
 A plugin is a JAR file that contains one or more classes with exactly one of them implementing `software.coley.recaf.plugin.Plugin`. When Recaf launches it looks in the plugins directory for JAR files that contain these plugin classes. It will then attempt to load and initialize them. Because a plugin is distributed as a JAR file a plugin developer can create complex logic and organize it easily across multiple classes in the JAR.
 
+You can find a template project for creating plugins on GitHub at [Recaf-Plugins/Recaf-4x-plugin-workspace](https://github.com/Recaf-Plugins/Recaf-4x-plugin-workspace).
+
 ## Using services
 
 Plugins can use services by annotating the class with `@Dependent` and annotating the constructor with `@Inject`. For services that are application scoped, see this example:
@@ -17,6 +19,7 @@ import software.coley.recaf.services.workspace.WorkspaceManager;
 // Dependent is a CDI annotation which loosely translates to being un-scoped.
 // Plugin instances are managed by Recaf so the scope is bound to when plugins are loaded in practice.
 @Dependent
+@PluginInformation(id = "##ID##", version = "##VERSION##", name = "##NAME##", description = "##DESC##")
 class MyPlugin implements Plugin {
     private final WorkspaceManager workspaceManager;
 
@@ -45,6 +48,7 @@ import software.coley.recaf.services.inheritance.InheritanceGraph;
 import software.coley.recaf.services.workspace.WorkspaceManager;
 
 @Dependent
+@PluginInformation(id = "##ID##", version = "##VERSION##", name = "##NAME##", description = "##DESC##")
 class MyPlugin implements Plugin {
     // We will use the workspace manager to listen to when new workspaces are opened.
     // When this occurs we can access instances of workspace scoped services.
@@ -75,7 +79,5 @@ class MyPlugin implements Plugin {
     public void onDisable() { ... }
 }
 ```
-
-<div class="hidden">TODO: Fix link to chapter index page - https://github.com/rust-lang/mdBook/issues/2060</div>
 
 For the list of available services, see [the service lists](../services/index.html).
