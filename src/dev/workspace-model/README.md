@@ -81,7 +81,7 @@ As described in the workspace model above, resources have multiple _"bundles"_ t
 JvmClassBundle bundle = resource.getJvmClassBundle();
 
 // Contains JVM classes, grouped by the version of Java targeted by each class
-NavigableMap<Integer, JvmClassBundle> bundles = resource.getVersionedJvmClassBundles();
+NavigableMap<Integer, VersionedJvmClassBundle> bundles = resource.getVersionedJvmClassBundles();
 
 // Contains Android classes, grouped by the name of each DEX file
 Map<String, AndroidClassBundle> bundles = resource.getAndroidClassBundles();
