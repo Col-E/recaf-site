@@ -32,6 +32,16 @@ Clicking on a method finally shows you the actual class source code, with inform
 
 Naturally the more code that is covered the better. So using these reports to figure out where coverage is missing from really helps.
 
+> Why not use the built-in IntelliJ code-coverage feature when running unit tests?
+
+Unfortunately, IntelliJ's code coverage support refuses to run if you attempt to run tests across multiple modules. Its been an [open ticket since 2022](https://youtrack.jetbrains.com/issue/IDEA-296626) with no observed movement. You can use it if you test one module like `recaf-core` then another such as `recaf-ui` one after another, but you cannot combine those results together. If you just want to improve coverage over the `recaf-core` module then this is not an issue and you can use it to get accurate coverage data shown inline in the IDE.
+
+<figure><img src="../../assets/idea-codecov-run.png" alt=""><figcaption><p>Running a single module's tests in IntelliJ with code-coverage enabled.</p></figcaption></figure>
+
+<figure><img src="../../assets/idea-codecov-inline.png" alt=""><figcaption><p>The results of running tests with code-coverage show a table of packages/classes and how much of the methods/lines are covered. In the code display, lines are colored to show which have been fully covered, partially covered, and completely missed during the test execution.</p></figcaption></figure>
+
 ## Checking code coverage online
 
-If you want to see the current code coverage statistics and color-coded source without running the tests locally you can check out the latest [codecov.io/Col-E/Recaf](https://app.codecov.io/gh/Col-E/Recaf) report.
+If you want to see the current code coverage statistics and color-coded source without running the tests locally you can check out the latest [codecov.io/Col-E/Recaf](https://app.codecov.io/gh/Col-E/Recaf) report. Do note that the way that CodeCov measures is slightly different than how JaCoCo measures coverage so the numbers may not match, but should generally be in the same ballpark.
+
+<figure><img src="../../assets/codecov.png" alt=""><figcaption><p>Screenshot of the code-coverage summary from October 2024. Recaf has a reported average of 70% code coverage across the project.</p></figcaption></figure>
