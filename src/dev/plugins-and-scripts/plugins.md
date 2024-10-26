@@ -81,3 +81,9 @@ class MyPlugin implements Plugin {
 ```
 
 For the list of available services, see [the service lists](../services/index.html).
+
+## Plugins and JavaFX
+
+Plugins are loaded _before JavaFX initializes_. If your plugin has code that works with JavaFX classes or modifies Recaf's UI then you need to wrap that code in a `FxThreadUtil.run(() -> { ... })` call.
+
+You can still inject most UI services directly like `MainMenuProvider`, but when calling its methods you have to be careful. There may be some services or injectable components that are a bit more finicky and will require `Instance<ThingIWantToInject>` instead to work around this, where you call `instance.get()` inside the `FxThreadUtil.run(() -> { ... })` call to get the instance when JavaFX has been initialized.
