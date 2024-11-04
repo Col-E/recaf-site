@@ -82,6 +82,12 @@ class MyPlugin implements Plugin {
 
 For the list of available services, see [the service lists](../services/index.html).
 
+## CDI within Plugins
+
+Plugins are capable of injecting Recaf's services in the plugin's constructor. Plugins themselves are only capable of being `@Dependent` scoped and cannot declare any injectable components themselves. For instance, if you want to create a new `JvmDecompiler` implementation that pulls in another Recaf service, you need to inject that service into the plugin's constructor and pass it to the `JvmDecompiler` implementation manually.
+
+The reason for this is that once the CDI container is initialized at startup it cannot be modified. We can inject new classes with services already in the container, but nothing new can be added at runtime.
+
 ## Plugins and JavaFX
 
 Plugins are loaded _before JavaFX initializes_. If your plugin has code that works with JavaFX classes or modifies Recaf's UI then you need to wrap that code in a `FxThreadUtil.run(() -> { ... })` call.
