@@ -34,15 +34,23 @@ NameGenerator nameGenerator = new NameGenerator() {
     public String mapClass(@Nonnull ClassInfo info) {
         return "mapped/Class" + Math.abs(info.getName().hashCode());
     }
+    
     @Nonnull
     @Override
     public String mapField(@Nonnull ClassInfo owner, @Nonnull FieldMember field) {
         return "mappedField" + Math.abs(owner.getName().hashCode() + info.getName().hashCode());
     }
+    
     @Nonnull
     @Override
     public String mapMethod(@Nonnull ClassInfo owner, @Nonnull MethodMember method) {
         return "mappedMethod" + Math.abs(owner.getName().hashCode() + info.getName().hashCode());
+    }
+    
+    @Nonnull
+    @Override
+    public String mapVariable(@Nonnull ClassInfo owner, @Nonnull MethodMember declaringMethod, @Nonnull LocalVariable variable) {
+        return "mappedVar" + variable.getIndex();
     }
 };
 ```
