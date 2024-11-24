@@ -16,7 +16,15 @@ catch (IllegalStateException ex) { /* no workspace open */ }
 Any workspace instance can also be exported:
 
 ```java
+// Delegates to export(workspace, "workspace", true)
 pathExportingManager.export(workspace);
+
+// Prompts the user to:
+// - Alert them if the workspace has no changes recorded in it (seeL alertWhenEmpty)
+// - Provide a location to save the workspace to (if you loaded a jar, you should probably provide a location like "export.jar")
+boolean alertWhenEmpty = false;
+String description = "some files"; // Used in logger output so that we see "exported 'some files' to %PATH%"
+pathExportingManager.export(workspace, description, alertWhenEmpty);
 ```
 
 ## Exporting a specific class/file
