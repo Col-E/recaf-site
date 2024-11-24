@@ -161,3 +161,17 @@ note for Edible "Common parent of Apple and Grape"
 Edible <|-- Apple
 Edible <|-- Grape
 ```
+
+## Checking if a type is assignable from another
+
+Java's `java.lang.Class` has an `isAssignableFrom(Class)` method which the inheritance graph mirrors.
+
+```java
+// Will return true since both Apple/Grape implement Edible
+graph.isAssignableFrom("Edible", "Apple");
+graph.isAssignableFrom("Edible", "Grape");
+
+// The inverse Will return false
+graph.isAssignableFrom("Apple", "Edible");
+graph.isAssignableFrom("Grape", "Edible");
+```
