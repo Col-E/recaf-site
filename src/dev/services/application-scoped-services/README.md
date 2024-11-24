@@ -26,6 +26,7 @@ These are the services defined in the `core` module.
 * [ScriptManager](scriptmanager.md)
 * [SearchService](searchservice.md)
 * [SnippetManager](snippetmanager.md)
+* TransformationManager
 * [WorkspaceManager](workspacemanager.md)
 
 ## UI
@@ -46,3 +47,4 @@ The `ui` module defines a number of new service types dedicated to UI behavior.
 * [ResourceSummaryService](resourcesummaryservice.md)
 * WindowFactory
 * WindowManager
+* WindowStyling

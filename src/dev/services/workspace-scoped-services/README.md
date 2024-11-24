@@ -14,6 +14,7 @@ These are the services defined in the `core` module.&#x20;
 * ConfigComponentManager
 * [InheritanceGraph](inheritancegraph.md)
 * [MappingApplier](mappingapplier.md)
+* TransformationApplier
 
 ## UI
 
