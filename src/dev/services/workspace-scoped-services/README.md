@@ -9,12 +9,8 @@ These are the services defined in the `core` module.&#x20;
 * [AggregateMappingManager](aggregatemappingmanager.md)
 * AssemblerPipelineManager
 * AstService
-* [CallGraph](callgraph.md)
 * ConfigIconManager
 * ConfigComponentManager
-* [InheritanceGraph](inheritancegraph.md)
-* [MappingApplier](mappingapplier.md)
-* TransformationApplier
 
 ## UI
 

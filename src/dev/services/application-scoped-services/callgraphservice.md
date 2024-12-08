@@ -1,6 +1,25 @@
-# CallGraph
+# CallGraphService
 
-The `InheritanceGraph` allows you to navigate between methods, linked by calls to one another.
+The `CallGraphService` allows you to create `CallGraph` instances, which model the flow of method calls through the workspace.
+
+## Getting a CallGraph instance
+
+The `CallGraph` type can be created for any arbitrary `Workspace`. By default the graph will not populate until you call `CallGraph#initialize`. This service will always keep a shared copy of the call graph for the current workspace.
+
+```java
+// You can make a new graph from any workspace.
+CallGraph graph = callGraphService.newCallGraph(workspace);
+
+// Remember to call the "initialize" method.
+graph.initialize();
+
+// For large workspaces you may want to delegate this to run async and wait on the graph to be ready (see below).
+CompletableFuture.runAsync(graph::initialize);
+
+// Or get the current (shared) graph for the current workspace if one is open in the workspace manager.
+// It will auto-initialize in the background. You will want to wait for the graph to be ready before use (see below).
+graph = callGraphService.getCurrentWorkspaceGraph(); // Can be 'null' if no workspace is open.
+```
 
 ## Graph readiness
 

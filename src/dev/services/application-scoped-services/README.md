@@ -7,12 +7,15 @@ These services are available for injection at any point.
 These are the services defined in the `core` module.
 
 * [AttachManager](attachmanager.md)
+* [CallGraphService](callgraphservice.md)
 * [CommentManager](commentmanager.md)
 * [ConfigManager](configmanager.md)
 * [DecompileManager](decompilemanager.md)
 * [GsonProvider](gsonprovider.md)
 * [InfoImporter](infoimporter.md)
+* [InheritanceGraphService](inheritancegraphservice.md)
 * [JavacCompiler](javaccompiler.md)
+* [MappingApplierService](mappingapplierservice.md)
 * [MappingFormatManager](mappingformatmanager.md)
 * [MappingGenerator](mappinggenerator.md)
 * [MappingListeners](mappinglisteners.md)
@@ -26,8 +29,10 @@ These are the services defined in the `core` module.
 * [ScriptManager](scriptmanager.md)
 * [SearchService](searchservice.md)
 * [SnippetManager](snippetmanager.md)
-* TransformationManager
+* [TransformationApplierService](transformationapplierservice.md)
+* [TransformationManager](transformationmanager.md)
 * [WorkspaceManager](workspacemanager.md)
+* [WorkspaceProcessingService](workspaceprocessingservice.md)
 
 ## UI
 

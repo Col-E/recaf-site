@@ -1,6 +1,18 @@
-# InheritanceGraph
+# InheritanceGraphService
 
-The `InheritanceGraph` allows you, for any given class, to see all of its parent types _(Those that it extends/implements)_ and its child types _(Those that extend/implement it)_.
+The `InheritanceGraphService` allows you to create `InheritanceGraph` instances, which model the parent/child relations between classes and interfaces in the workspace.
+
+## Getting an InheritanceGraph instance
+
+The `InheritanceGraph` type can be created for any arbitrary `Workspace`. This service will always keep a shared copy of the inheritance graph for the current workspace.
+
+```java
+// You can make a new graph from any workspace.
+InheritanceGraph graph = callGraphService.newInheritanceGraph(workspace);
+
+// Or get the current (shared) graph for the current workspace if one is open in the workspace manager.
+graph = callGraphService.getCurrentWorkspaceGraph(); // Can be 'null' if no workspace is open.
+```
 
 ## Parents and children
 

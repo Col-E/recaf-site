@@ -1,6 +1,20 @@
-# MappingApplier
+# MappingApplierService
 
-The mapping applier takes in a `Mappings` instance and applies it to the workspace, or a sub-set of specific classes.
+The mapping applier service takes in a `Mappings` instance and applies it to a `Workspace`, or a sub-set of specific classes in a `Workspace`.
+
+## Targeting mappings in a workspace
+
+Mappings can be applied to any `Workspace`. You will either pass a workspace reference to the applier service, or use convenience method for an applier in the currently open workspace.
+
+```java
+// Applier in an arbitrary workspace
+Workspace workspace = ...
+MappingApplier applier = mappingApplierService.inWorkspace(workspace);
+
+// Applier in the current workspace (assuming one is open)
+// If no workspace is open, this applier will be 'null'
+MappingApplier applier = mappingApplierService.inCurrentWorkspace();
+```
 
 ## Mapping the whole workspace
 
