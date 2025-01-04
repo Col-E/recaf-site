@@ -26,17 +26,17 @@ public class MyTransformer implements JvmClassTransformer {
             // bytecode from the 'ClassInfo' you risk losing all previous transform operations.
             byte[] modifiedBytecode = context.getBytecode(bundle, classInfo);
             
-            // TODO: Make changes to 'modifiedBytecode'
+            // TODO: Make changes to 'modifiedBytecode' here
             
-            // Save modified bytecode into the context
+            // Save modified bytecode into the context.
             context.setBytecode(bundle, classInfo, modifiedBytecode);
         } else if (exampleOfAsmTreeEdit) {
             // IMPORTANT: The same note as above applies here, but with ASM's ClassNode.
             ClassNode node = context.getNode(bundle, classInfo);
             
-            // TODO: Make changes to 'node'
+            // TODO: Make changes to 'node' here
             
-             // Save modified class-node (and its respective bytecode) into the context
+            // Save modified class-node (and its respective bytecode) into the context.
             context.setNode(bundle, classInfo, node);
         }
     }

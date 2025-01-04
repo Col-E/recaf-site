@@ -54,7 +54,7 @@ class MyPlugin implements Plugin {
     // When this occurs we can access instances of workspace scoped services.
     @Inject
     public MyPlugin(WorkspaceManager workspaceManager, 
-                Instance<InheritanceGraph> graphProvider) {
+                Instance<ExampleWorkspaceScopedThing> scopedThingProvider) {
         // No workspace open, wait until one is opened by the user.
         if (workspaceManager.getCurrent() == null) {
             workspaceManager.addWorkspaceOpenListener(newWorkspace -> {
@@ -63,12 +63,12 @@ class MyPlugin implements Plugin {
                 // At this point, all workspace scoped services are re-allocated by CDI
                 // to target the newly opened workspace.
                 //
-                // Thus, we can get our inheritance graph of the workspace here.
-                InheritanceGraph graph = graphProvider.get();
+                // Thus, we can get our workspace-scoped service here.
+                ExampleWorkspaceScopedThing thing = scopedThingProvider.get();
             });
         } else {
-            // There is a workspace, so we can immediately get the graph for the current workspace.
-            InheritanceGraph graph = graphProvider.get();
+            // There is a workspace, so we can immediately get the workspace-scoped service for the current workspace.
+            ExampleWorkspaceScopedThing thing = scopedThingProvider.get();
         }
     }
 
