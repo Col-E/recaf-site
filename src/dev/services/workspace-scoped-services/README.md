@@ -6,9 +6,7 @@ These services are available for injection only while a workspace is open. When 
 
 These are the services defined in the `core` module.&#x20;
 
-* [AggregateMappingManager](aggregatemappingmanager.md)
 * AssemblerPipelineManager
-* AstService
 * ConfigIconManager
 * ConfigComponentManager
 

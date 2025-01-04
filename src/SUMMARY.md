@@ -18,6 +18,7 @@
 	- [Scripts](dev/plugins-and-scripts/scripts.md)
 - [Services](dev/services/README.md)
 	- [Application scoped services](dev/services/application-scoped-services/README.md)
+		- [AggregateMappingManager](dev/services/application-scoped-services/aggregatemappingmanager.md)
 		- [AttachManager](dev/services/application-scoped-services/attachmanager.md)
 		- [CallGraphService](dev/services/application-scoped-services/callgraphservice.md)
 		- [CommentManager](dev/services/application-scoped-services/commentmanager.md)
@@ -47,7 +48,7 @@
 		- [WorkspaceManager](dev/services/application-scoped-services/workspacemanager.md)
 		- [WorkspaceProcessingService](dev/services/application-scoped-services/workspaceprocessingservice.md)
 	- [Workspace scoped services](dev/services/workspace-scoped-services/README.md)
-		- [AggregateMappingManager](dev/services/workspace-scoped-services/aggregatemappingmanager.md)
+		- n/a
 - [Utilities](dev/util/README.md)
 	- [Android](dev/util/android/README.md)
 	- [ASM Visitors](dev/util/visitors/README.md)

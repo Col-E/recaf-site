@@ -6,6 +6,8 @@ These services are available for injection at any point.
 
 These are the services defined in the `core` module.
 
+* [AggregateMappingManager](aggregatemappingmanager.md)
+* AstService
 * [AttachManager](attachmanager.md)
 * [CallGraphService](callgraphservice.md)
 * [CommentManager](commentmanager.md)

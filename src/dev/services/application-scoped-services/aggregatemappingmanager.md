@@ -10,6 +10,7 @@ To do feature A you do XYZ, here is a sample.
 @Inject AggregateMappingManager aggManager;
 
 // Get the mappings on-demand
+// Will be 'null' if no workspace is open
 AggregatedMappings mappings = aggManager.getAggregatedMappings();
 
 // Register a listener to be notified of changes
