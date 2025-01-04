@@ -8,10 +8,15 @@ The `InheritanceGraph` type can be created for any arbitrary `Workspace`. This s
 
 ```java
 // You can make a new graph from any workspace.
-InheritanceGraph graph = callGraphService.newInheritanceGraph(workspace);
+InheritanceGraph graph = inheritGraphService.newInheritanceGraph(workspace);
 
 // Or get the current (shared) graph for the current workspace if one is open in the workspace manager.
-graph = callGraphService.getCurrentWorkspaceGraph(); // Can be 'null' if no workspace is open.
+graph = inheritGraphService.getCurrentWorkspaceGraph(); // Can be 'null' if no workspace is open.
+
+// If you want the current workspace, but will settle for making a new graph if a current workspace
+// is not open you can use the 'getOrCreate' variant. It will never return 'null' and usually
+// give you the current workspace graph.
+graph = inheritGraphService.getOrCreateInheritanceGraph(workspace);
 ```
 
 ## Parents and children

@@ -7,7 +7,7 @@ Most of what you need should be covered by:
 - [CDI](arch/cdi.md)
   - This page talks about how injection is used in Recaf, which is used to access features within Recaf.
 - [Services](services/index.html)
-  - This page links to the lists of different scoped services / features.
+  - This page links to the lists of different services / features.
 - [Plugins](plugins-and-scripts/plugins.md)
   - This page talks about how to write plugins.
 

@@ -20,9 +20,7 @@ engine.run("System.setProperty(\"foo\", \"bar\");").thenAccept(result -> {
 });
 
 // Recaf's script system allows you to also define full classes. Any method 'void run()' will be executed.
-// It also supports injection of *any* of Recaf's services of *any* scope. If a workspace is currently
-// active you can inject it or any workspace-scoped service.
-// Check the scripting section for more information.
+// It also supports injection of any of Recaf's services.
 String code = """
 		public class Test implements Runnable {
 			@Inject

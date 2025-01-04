@@ -12,12 +12,11 @@ A brief overview of the major dependencies Recaf uses in each module.
 
 **ZIP Files**: Recaf uses [LL-Java-Zip](https://github.com/Col-E/LL-Java-Zip) to read ZIP files. The behavior of LL-Java-Zip is configurable and can mirror interpreting archives in different ways. This is important for Java reverse engineering since the JVM itself has some odd parsing quirks that most other libraries do not mirror. More information about this can be read on the LL-Java-Zip project page.
 
-**Source Parsing**: Recaf uses [OpenRewrite](https://github.com/openrewrite/rewrite) to parse Java source code. The major reasons for choosing this over other more mainstream parsing libraries are that:
+**Source Parsing**: Recaf uses [SourceSolver](https://github.com/Col-E/SourceSolver) to parse Java source code. The reasons for using our own solution over other more mainstream parsing libraries are that:
 
 1. The AST model is error resilient. This is important since code Recaf is decompiling may not always yield perfectly correct Java code, especially with more intense forms of obfuscation. The ability to ignore invalid sections of the source while maintaining the ability to interact with recognizable portions is very valuable.
-2. The AST model bakes in the type, when known, to all AST nodes. For a node such as a method reference, you can easily access the name of the reference, the method descriptor of the reference, and the owning class defining the method. This information is what all of our context-sensitive actions must have access to in order to function properly.
-3. The AST supports easy source transformation options. In the past if a user wanted to remap a class or member, we would apply the mapping, decompile the mapped class, then replace the text contents with the new decompilation. This process can be slower on larger classes due to longer decompilation times. If we can skip that step and instead instantly transform the AST to update the text we can save a lot of time in these cases.
-4. The AST supports code formatting. We can allow the user to apply post-processing to decompiled code to give it a uniform style of their choosing, or allow them to format code to that style on demand with a keybind.
+2. The AST model parses very fast and context resolution is equally as fast. We do not want to use solutions that create noticeable lag in Recaf's user interface.
+3. We own the project, so we can fix bugs and create new releases whenever we want. Other parser projects vary in the rate of their release cycles.
 
 **CDI**: Recaf uses [Weld](https://weld.cdi-spec.org/) as its CDI implementation. You can read the [CDI](cdi.md) article for more information.
 

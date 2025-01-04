@@ -22,15 +22,15 @@ To create a `Workspace` instance you will almost always be using the `BasicWorks
 * A single `WorkspaceResource` for the primary resource.
 * A single `WorkspaceResource` for the primary resource, plus `Collection<WorkspaceResource>` for the supporting resources.
 
-To create a `WorkspaceResource` you can use the [`ResourceImporter` service](../services/application-scoped-services/resourceimporter.md), which allows you to read content from a variety of inputs.
+To create a `WorkspaceResource` you can use the [`ResourceImporter` service](../services/resourceimporter.md), which allows you to read content from a variety of inputs.
 
 ## Loading workspaces
 
 There are multiple ways to load workspaces internally. Depending on your intent you'll want to do it differently.
 
-For loading from `Path` values in a UI context, use [`PathLoadingManager`](../services/application-scoped-services/pathloadingmanager.md). It will handle loading the content from the path in a background thread, and gives you a simple consumer type to handle IO problems.
+For loading from `Path` values in a UI context, use [`PathLoadingManager`](../services/pathloadingmanager.md). It will handle loading the content from the path in a background thread, and gives you a simple consumer type to handle IO problems.
 
-Otherwise, you can use [`WorkspaceManager`](../services/application-scoped-services/workspacemanager.md) directly to call `setCurrent(Workspace)`.
+Otherwise, you can use [`WorkspaceManager`](../services/workspacemanager.md) directly to call `setCurrent(Workspace)`.
 
 ## Exporting workspaces
 
@@ -50,7 +50,7 @@ The configured options instance can be re-used to export contents with the same 
 
 ## Listeners
 
-The [`WorkspaceManager`](../services/application-scoped-services/workspacemanager.md) allows you to register listeners for multiple workspace events.
+The [`WorkspaceManager`](../services/workspacemanager.md) allows you to register listeners for multiple workspace events.
 
 * `WorkspaceOpenListener`: When a new workspace is opened within the manager.
 * `WorkspaceCloseListener`: When a prior workspace is closed within the manager.

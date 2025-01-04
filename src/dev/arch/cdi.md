@@ -10,17 +10,16 @@ If you are unfamiliar with dependency injection (DI) and DI frameworks, watch th
 
 ## What is CDI though?
 
-CDI is [Contexts and Dependency Injection for Java EE](https://www.cdi-spec.org/). If that sounds confusing here's what that actually means in practice. When a `class` implements one of Recaf's service interfaces we need a way to access that implementation so that the feature can be used. CDI uses annotations to determine when to allocate new instances of these implementations. The main three used in Recaf are the following:
+CDI is [Contexts and Dependency Injection for Java EE](https://www.cdi-spec.org/). If that sounds confusing here's what that actually means in practice. When a `class` implements one of Recaf's service interfaces we need a way to access that implementation so that the feature can be used. CDI uses annotations to determine when to allocate new instances of these implementations. We only use two in Recaf:
 
 * `@ApplicationScoped`: This implementation is lazily allocated once and used for the entire duration of the application.
-* `@WorkspaceScoped`: This implementation is lazily allocated once, but the value is then thrown out when a new `Workspace` is loaded. This way when the implementation is requested an instance linked to the current workspace is always given.
 * `@Dependent`: This implementation is not cached, so a new instance is provided every time upon request. You can think of it as being _"scopeless"_.
 
 When creating a class in Recaf, you can supply these implementations in a constructor that takes in parameters for all the needed types, and is annotated with `@Inject`. This means you will not be using the constructor yourself. You will let CDI allocate it for you. Your new class can then also be used the same way via `@Inject` annotated constructors.
 
 ## What does CDI look like in Recaf?
 
-Let's assume a simple case. We'll create an interface outlining some behavior, like compiling some code. We will create a single implementation class and mark it as `@ApplicationScoped` since it is not associated with any specific state, like the current Recaf workspace.
+Let's assume a simple case. We'll create an interface outlining some behavior, like compiling some code. We will create a single implementation class and mark it as `@ApplicationScoped`.
 
 ```java
 interface Compiler {
@@ -61,7 +60,7 @@ If you use `@Inject CompilerGui(Compiler compiler)` with more than one available
 
 > What if I want to inject or rquest a value later and not immediately in the constructor?
 
-CDI comes with the type `Instance<T>` which serves this purpose. It implements `Supplier<T>` which allows you do to `T value = instance.get()`. 
+CDI comes with the type `Instance<T>` which serves this purpose. It implements `Supplier<T>` which allows you do to `T value = instance.get()`. In Recaf because we only ever use `@ApplicationScoped` and `@Dependent` this is really only useful for things marked as `@Dependant`.
 
 ```java
 @Dependent
@@ -111,13 +110,8 @@ I'd just like to point out, what you can and should do is not always a perfect m
 | I have a...               | I want to inject a...         | Should I do that?      |
 | ------------------------- | ----------------------------- | ---------------------- |
 | `ApplicationScoped` class | `ApplicationScoped` parameter | :heavy_check_mark: Yes |
-| `ApplicationScoped` class | `WorkspaceScoped` parameter   | :x: No                 |
 | `ApplicationScoped` class | `Dependent` parameter         | :x: No                 |
-| `WorkspaceScoped` class   | `ApplicationScoped` parameter | :heavy_check_mark: Yes |
-| `WorkspaceScoped` class   | `WorkspaceScoped` parameter   | :heavy_check_mark: Yes |
-| `WorkspaceScoped` class   | `Dependent` parameter         | :x: No                 |
 | `Dependent` class         | `ApplicationScoped` parameter | :heavy_check_mark: Yes |
-| `Dependent` class         | `WorkspaceScoped` parameter   | :heavy_check_mark: Yes |
 | `Dependent` class         | `Dependent` parameter         | :heavy_check_mark: Yes |
 
 This table is for directly injecting types. If you have a `Dependent` type you can do `Instance<Foo>` like in the example above.
@@ -133,11 +127,6 @@ In situations where providing values to constructors is not feasible, the `Recaf
 ## How do I know which scope to use when making new services?
 
 Services that are effectively singletons will be `@ApplicationScoped`.
-
-Services that depend on the current content of a workspace will be `@WorkspaceScoped`.
-
-* In some cases, you may want to design a service as `@ApplicationScoped` and just pass in the `Workspace` as a method parameter. For instance, implementing a search. It needs `Workspace` access for sure, but the behavior is constant so it makes more sense to implement it this way as an `@ApplicationScoped` type.
-* A strong case for `@WorkspaceScoped` are services that directly correlate with the contents of a `Workspace`. For instance, the inheritance graph service. The data it models will only ever be relevant to an active workspace. Having to pass in a `Workspace` every time would make implementing caching difficult.
 
 Components acting only as views and wrappers to other components can mirror their dependencies' scope, or use `@Dependent` since its not the view that really matters, but the data backing it.
 
@@ -163,18 +152,15 @@ UI classes like JavaFX's `Menu` often have methods marked as `final` to prevent 
 
 CDI instantiates components when they are first used. If you declare an `@ApplicationScoped` component, but it is never used anywhere, it will never be initialized.
 
-If you want or need something to be initialized immediately when Recaf launches add the extra annotation `@EagerInitialization`. Any component that has this will be initialized at the moment defined by the `value()` in `EagerInitialization`. This annotation can be used in conjunction with `@ApplicationScoped` or `@WorkspaceScoped`.
+If you want or need something to be initialized immediately when Recaf launches add the extra annotation `@EagerInitialization`. Any component that has this will be initialized at the moment defined by the `value()` in `EagerInitialization`. This annotation can only be used in conjunction with `@ApplicationScoped`.
 
 There are two options:
 
-**`IMMEDIATE`**: The component is initialized as soon as possible.
-
-* For `@ApplicationScoped` this occurs right after the CDI container is created.
-* For `@WorkspaceScoped` this occurs right after a workspace is opened.
-
-**`AFTER_UI_INIT`**: The component is initialized after the UI platform is initialized.
-
-* For `@ApplicationScoped` this occurs right after the UI platform is initialized, as expected.
-* For `@WorkspaceScoped` this occurs right after a workspace is opened, with the assumption the UI is already initialized.
+- **`IMMEDIATE`**: The component is initialized as soon as possible.
+- **`AFTER_UI_INIT`**: The component is initialized after the UI platform is initialized.
 
 Be aware that any component annotated with this annotation forces all of its dependency components to also be initialized eagerly.
+
+## Why do we not have a scope for workspace-associated things?
+
+We used to, but the main issue is that the features they provided could only be used by other `@WorkspaceScoped` or `@Dependent` components. That makes sense at first, but there are larger design implications that you should consider. What if you have a component that must be `@ApplicationScoped` and you need to use a feature that is locked behind a `@WorkspaceScoped` component? You would need to create an `Instance<T>` of that service then do `instance.get()` when you observe a workspace being opened. That pattern is rather ugly and requires more CDI knowledge than is necessary for basic plugin development. Without the existence of `@WorkspaceScoped` plugins can safely inject anything listed in [the service lists](../services/index.html) without thinking about the inner workings of CDI at all.

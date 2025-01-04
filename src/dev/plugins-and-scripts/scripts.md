@@ -56,9 +56,7 @@ workspace.findClasses(Accessed::hasEnumModifier).stream()
 
 ## Using services
 
-Scripts are ran when a user requests them, so you _generally_ do not need to care about whether a service is `@ApplicationScoped` or `@WorkspaceScoped`. The assumption is the user will run the script when it is needed. So a script that uses workspace-scoped content will only be used when a workspace is opened. Of course, if the script is going to load a new workspace, then you will need to follow the same process as described for plugins when using workspace scoped services.
-
-Simple scripts do not use services. Scripts using the full class form will be able to use services.
+Scripts in the simple form do not use services. Scripts using the full class form will be able to use services.
 
 ```java
 // ==Metadata==
