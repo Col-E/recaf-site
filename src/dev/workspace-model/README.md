@@ -56,8 +56,6 @@ The [`WorkspaceManager`](../services/workspacemanager.md) allows you to register
 * `WorkspaceCloseListener`: When a prior workspace is closed within the manager.
 * `WorkspaceModificationListener`: When the active workspace's model is changed _(Supporting resource added/removed)_
 
-When creating services and CDI enabled classes, you can annotate the class with `@AutoRegisterWorkspaceListeners` to automatically register and unregister the class based on what is necessary for the CDI scope.
-
 ## Accessing classes/files in the workspace
 
 Classes and files reside within the `WorkspaceResource` items in a `Workspace`. You can access the resources directly like so:
