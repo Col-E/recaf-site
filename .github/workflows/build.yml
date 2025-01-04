@@ -1,11 +1,23 @@
-# From: https://users.rust-lang.org/t/experience-about-deploying-mdbook-on-github-using-github-action/81408
+# Based on: https://users.rust-lang.org/t/experience-about-deploying-mdbook-on-github-using-github-action/81408
 #  - Remember to set the GitHub pages 'source' to 'GitHub Actions' since by default its based on the repo content
 
-name: Mdbook build
+name: Deploy static content to Pages
 
 on:
+  # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Disallow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -29,7 +41,31 @@ jobs:
     - name: Build
       run: mdbook build
     # Share between different jobs
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: book
         path: book/
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Download artifact
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v7
+        with:
+          name: book
+          path: book/
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: book
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
