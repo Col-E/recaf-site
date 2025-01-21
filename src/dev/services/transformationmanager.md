@@ -53,7 +53,7 @@ public class MyTransformer implements JvmClassTransformer {
      *  this transformer is invoked. */
     @Nonnull
     @Override
-    public Set<Class<? extends JvmClassTransformer>> dependencies() {
+    public Set<Class<? extends ClassTransformer>> dependencies() {
         // Optional method, you can delete this if you have no dependencies.
         // But if you do use dependencies, you can get instances of them via 'context.getJvmTransformer(OtherTransformer.class)'
         // in the 'setup' and 'transform' methods above.

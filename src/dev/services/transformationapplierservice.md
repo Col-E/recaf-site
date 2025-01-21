@@ -17,3 +17,17 @@ TransformationApplier applier = transformationApplierService.newApplierForCurren
 Workspace workspace = ...
 TransformationApplier applier = transformationApplierService.newApplier(workspaqce);
 ```
+
+## Applying transformations
+
+```java
+// Specify a list of transformers you want to apply.
+List<Class<? extends JvmClassTransformer>> jvmTransformers = List.of(...);
+
+applier.transformJvm(jvmTransformers); // To apply to all JVM classes in the workspace
+applier.transformJvm(jvmTransformers, jvmTransformPredicate); // To apply to whitelisted JVM classes (per-filter)
+
+// If the List<...> declaration is a big verbose you can inline it, and everything will play nice.
+applier.transformJvm(List.of(...));
+```
+
