@@ -19,25 +19,29 @@ public class MyTransformer implements JvmClassTransformer {
     @Override
     public void transform(@Nonnull JvmTransformerContext context, @Nonnull Workspace workspace,
                           @Nonnull WorkspaceResource resource, @Nonnull JvmClassBundle bundle,
-                          @Nonnull JvmClassInfo classInfo) throws TransformationException {
+                          @Nonnull JvmClassInfo initialClassState) throws TransformationException {
         if (exampleOfRawEdit) {
-            // IMPORTANT: Use this method to get the bytecode, and DO NOT use the direct 'classInfo.getBytecode()'!
+            // IMPORTANT: Use this method to get the bytecode, and DO NOT use the direct 'initialClassState.getBytecode()'!
             // The context will store updated bytecode across multiple transformations, so if you use the direct
             // bytecode from the 'ClassInfo' you risk losing all previous transform operations.
-            byte[] modifiedBytecode = context.getBytecode(bundle, classInfo);
+            byte[] modifiedBytecode = context.getBytecode(bundle, initialClassState);
             
             // TODO: Make changes to 'modifiedBytecode' here
             
             // Save modified bytecode into the context.
-            context.setBytecode(bundle, classInfo, modifiedBytecode);
+            context.setBytecode(bundle, initialClassState, modifiedBytecode);
         } else if (exampleOfAsmTreeEdit) {
             // IMPORTANT: The same note as above applies here, but with ASM's ClassNode.
-            ClassNode node = context.getNode(bundle, classInfo);
+            ClassNode node = context.getNode(bundle, initialClassState);
             
             // TODO: Make changes to 'node' here
             
             // Save modified class-node (and its respective bytecode) into the context.
-            context.setNode(bundle, classInfo, node);
+            context.setNode(bundle, initialClassState, node);
+            
+            // If the changes are significant and require recomputing stack-frames, calling this will ensure
+            // this process is done for you automatically after all transformers are applied.
+            context.setRecomputeFrames(initialClassState.getName());
         }
     }
 
