@@ -115,6 +115,29 @@ resource.classBundleStream()
          });
 ```
 
+## Workspace PathNodes
+
+There are a lot of portions of Recaf that need to have some way to point to classes and files in the workspace. However, providing just the name of the class or file could be ambiguous if different bundles in the workspace contain entries of the same name. To address this Recaf has a `PathNode` type _(with many child types)_ outlining locations in a `Workspace` with increasing granularity. For instance, a `PathNode` to a `ClassInfo` will specify which `Bundle` contains that class.
+
+Here is a tree model of the current `PathNode` types.
+
+- `WorkspacePathNode`
+  - `ResourcePathNode`
+    - `BundlePathNode`
+      - `DirectoryPathNode`
+        - `ClassPathNode`
+          - `ClassMemberPathNode`
+            - `AnnotationPathNode`
+            - `LocalVariablePathNode`
+            - `InstructionPathNode`
+            - `ThrowsPathNode`
+            - `CatchPathNode`
+          - `InnerClassPathNode`
+            - `AnnotationPathNode`
+          - `AnnotationPathNode`
+        - `FilePathNode`
+          - `LineNumberPathNode`
+
 ## Finding specific classes/files in the workspace
 
 The `Workspace` interface defines some `find` operations allowing for simple name look-ups of classes and files.
