@@ -1,3 +1,3 @@
 # Architecture
 
-These articles talk about the overall design of Recaf.
+The articles in this section talk about the overall design of Recaf.
