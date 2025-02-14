@@ -8,5 +8,5 @@ This repo contains the source for the Recaf home page, and user/developer docume
 
 mdbook plugins used:
 
-- [emojicodes](https://github.com/blyxyas/mdbook-emojicodes) - For converting things like `:x:` into `:x:`
+- [emojicodes](https://github.com/blyxyas/mdbook-emojicodes) - For converting things like `:x:` into :x:
 - [mermaid](https://github.com/badboy/mdbook-mermaid) - For rendering [`mermaid.js` diagram models](https://mermaid.js.org/intro/)
