@@ -31,9 +31,9 @@ SearchService searchService;
 ### String querying
 
 ```java
-Results results = searchService.search(classesWorkspace, new StringQuery(strMatchProvider.newEqualPredicate("Hello world")));
-Results results = searchService.search(classesWorkspace, new StringQuery(strMatchProvider.newStartsWithPredicate("Hello")));
-Results results = searchService.search(classesWorkspace, new StringQuery(strMatchProvider.newEndsWithPredicate("world")));
+Results results = searchService.search(workspace, new StringQuery(strMatchProvider.newEqualPredicate("Hello world")));
+Results results = searchService.search(workspace, new StringQuery(strMatchProvider.newStartsWithPredicate("Hello")));
+Results results = searchService.search(workspace, new StringQuery(strMatchProvider.newEndsWithPredicate("world")));
 ```
 
 All the available built-in predicates come from `StringPredicateProvider`, or you can provide your own predicate implementation.
@@ -41,9 +41,9 @@ All the available built-in predicates come from `StringPredicateProvider`, or yo
 ### Number querying
 
 ```java
-Results results = searchService.search(classesWorkspace, new NumberQuery(numMatchProvider.newEqualsPredicate(4)));
-Results results = searchService.search(classesWorkspace, new NumberQuery(numMatchProvider.newAnyOfPredicate(6, 32, 256)));
-Results results = searchService.search(classesWorkspace, new NumberQuery(numMatchProvider.newRangePredicate(0, 10)));
+Results results = searchService.search(workspace, new NumberQuery(numMatchProvider.newEqualsPredicate(4)));
+Results results = searchService.search(workspace, new NumberQuery(numMatchProvider.newAnyOfPredicate(6, 32, 256)));
+Results results = searchService.search(workspace, new NumberQuery(numMatchProvider.newRangePredicate(0, 10)));
 ```
 
 All the available built-in predicates come from `NumberPredicateProvider`, or you can provide your own predicate implementation.
@@ -53,7 +53,7 @@ All the available built-in predicates come from `NumberPredicateProvider`, or yo
 Each aspect of a reference *(declaring class, name, descriptor)* are their own string predicates. You pass `null` to any of these predicates to match anything for that given aspect. A simple example to find `System.out.println()` calls would look like:
 
 ```java
-Results results = searchService.search(classesWorkspace, new ReferenceQuery(
+Results results = searchService.search(workspace, new ReferenceQuery(
          strMatchProvider.newEqualPredicate("java/lang/System"),     // declaring class predicate
          strMatchProvider.newEqualPredicate("out"),                  // reference name predicate
          strMatchProvider.newEqualPredicate("Ljava/io/PrintStream;") // reference descriptor predicate
@@ -63,9 +63,32 @@ Results results = searchService.search(classesWorkspace, new ReferenceQuery(
 If you want to find *all* references to a given package you could do something like this:
 
 ```java
-Results results = searchService.search(classesWorkspace, new ReferenceQuery(
+Results results = searchService.search(workspace, new ReferenceQuery(
          strMatchProvider.newStartsWithPredicate("com/example/"),
          null, // match any field/method name
+         null, // match any field/method descriptor
+));
+```
+
+### Declaration querying
+
+The same ideas from reference querying apply here, but the results are the locations of declared members rather than the locations of references to the members.
+
+Here is an example of a search that would find a `FooService.getInput()` declaration in a workspace:
+```java
+Results results = searchService.search(workspace, new DeclarationQuery(
+         strMatchProvider.newEqualPredicate("com/example/FooService"),     // declaring class predicate
+         strMatchProvider.newEqualPredicate("getInput"),                  // reference name predicate
+         strMatchProvider.newEqualPredicate("Ljava/lang/String;") // reference descriptor predicate
+));
+```
+
+If you want to find *all* member declarations that return a specific type you could do something like this:
+
+```java
+Results results = searchService.search(workspace, new ReferenceQuery(
+         null, // match any class name
+         strMatchProvider.newEndsWithPredicate(")Lcom/example/FooService;"),
          null, // match any field/method descriptor
 ));
 ```
