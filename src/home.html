@@ -57,12 +57,12 @@
   color: white;
   display: inline-block;
   width: 100%;
+  border-radius: 15px;
+  box-sizing: border-box;
+  transition-duration: 0.2s;
 }
 
-.main-nav li {
-  text-align: center;
-  margin: 15px auto;
-}
+.main-nav li {}
 
 .logo {
   display: flex;
@@ -96,13 +96,9 @@
 }
 
 .main-nav > a,
-.main-nav > a:visited {
-  text-decoration: none;
-  color: white;
-}
+.main-nav > a:visited,
 .main-nav > a:hover {
   text-decoration: none;
-  color: rgb(200, 200, 255);
 }
 
 @media screen and (min-width: 768px) {
@@ -124,14 +120,7 @@
     margin-right: 50px;
     flex-direction: row;
     justify-content: flex-end;
-  }
-
-  .main-nav li {
-    margin: 0;
-  }
-
-  .nav-links {
-    margin-left: 40px;
+	gap: 35px;
   }
 
   .logo {
@@ -143,9 +132,9 @@
     display: none;
   }
 
-  .logo:hover,
   .nav-links:hover {
-    color: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0px 0px 2px 7px rgba(255, 255, 255, 0.1);
   }
   
   .title {
@@ -163,19 +152,16 @@
     <input type="checkbox" id="chkToggle"></input>
     <ul class="main-nav" id="js-menu">
       <li>
-        <a href="#" class="nav-links">Features</a>
+        <a href="user/index.html" class="nav-links"><i class="fa fa-book">&nbsp;&nbsp;</i>User Guide</a>
       </li>
       <li>
-        <a href="user/index.html" class="nav-links">User Guide</a>
+        <a href="dev/index.html" class="nav-links"><i class="fa fa-book">&nbsp;&nbsp;</i>Developer Guide</a>
       </li>
       <li>
-        <a href="dev/index.html" class="nav-links">Developer Guide</a>
+        <a href="https://github.com/Col-E/Recaf" class="nav-links"><i class="fa fa-github">&nbsp;&nbsp;</i>GitHub</a>
       </li>
       <li>
-        <a href="https://github.com/Col-E/Recaf" class="nav-links">GitHub</a>
-      </li>
-      <li>
-        <a href="https://discord.gg/Bya5HaA" class="nav-links">Discord</a>
+        <a href="https://discord.gg/Bya5HaA" class="nav-links"><i class="fa fa-comment">&nbsp;&nbsp;</i>Discord</a>
       </li>
     </ul>
   </nav>
@@ -191,14 +177,43 @@
   margin-top: 40px;
 }
 </style>
+<!--
 <center><div id="temp">
 <h2>Notice: The Recaf 4.X site is still a WIP</h2>
 <p>The layout isn't complete yet and the user-guide it empty at the moment. Most of the effort thus far has gone into the developer guide.</p>
 <p>Please refer the the main <a href="https://github.com/Col-E/Recaf">project REAMDE</a> while we finish up this new layout.</p>
-</div></center>
+</div></center>-->
 
 <div id="overview-section">
 	<style>
+#download-button {
+  cursor: pointer;
+  font-size: 20px;
+  padding: 20px 40px;
+  background: linear-gradient(to bottom left, #001831, #000);
+  border: 1px solid rgb(50, 55, 60);
+  border-radius: 40px;
+  -webkit-transition: all 1s;
+        transition: all 1s; 
+}
+#download-button:hover {
+  background: linear-gradient(to bottom left, #11569d, #020204);
+  border: 1px solid rgb(86, 119, 153);
+}
+#download-button::before {
+  content: '';
+  background-image: url('assets/download.svg');
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-top: -15px;
+  margin-bottom: -10px;
+  margin-left: -25px;
+  margin-right: 15px;
+}
+
 #overview-section img {
   max-width: 90vw;
 
@@ -217,9 +232,9 @@
   justify-content: space-around;
   align-items: stretch;
   align-content: stretch;
-  padding: 1vh;
+  padding: 20px;
 }
-.flex-container:nth-child(odd) {
+.bar-container:nth-child(odd) {
   background: rgb(15, 17, 17);
   border-top: 1px solid rgb(50, 55, 60);
   border-bottom: 1px solid rgb(50, 55, 60);
@@ -231,7 +246,7 @@
   flex-basis: auto;
   align-self: auto;
   order: 0;
-  padding: 1vh;
+  padding: 0px;
 }
 
 .desktop-only {
@@ -240,19 +255,34 @@
 
 @media screen and (min-width: 768px) {
   #overview-section img {
-    max-width: 50vw;
+    max-width:100%;
+    height:auto;
   }
+
   .flex-container {
+    max-width: 1100px;
     flex-direction: row;
-    padding: 3vh;
-  }
-  .flex-container:nth-child(even) {
-    flex-direction: row-reverse;
+    padding: 30px;
   }
   .flex-item {
-    padding: 3vh;
+    justify-content: space-between;
+    flex-basis: 50%;
+    padding: 15px;
+	max-width: 1000px;
+  }
+  .reverse-container {
+    flex-direction: row-reverse;
+  }
+  .bar-container {
+	display: flex;
+	align-items: center;
+    justify-content: center;
   }
   
+  #comment-hover {
+    display: flex;
+    justify-content: center;
+  }
   #comment-hover img:last-child {
     display: none;  
   }
@@ -268,26 +298,69 @@
   }
 }
 	</style>
+	<div class="bar-container">
 	<div class="flex-container">
 	  <div class="flex-item">
 		<h2>Recaf</h2>
-		<p>Recaf is an open-source Java bytecode editor that simplifies the process of editing compiled Java applications. To make things easier Recaf abstracts away much of the <a href="https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html">class file format</a>. Difficult tasks such as updating stack-frames are done automatically. Along with additional features to assist in the process of editing classes, Recaf is the most feature-rich free bytecode editor available.</p>
+		<p>Recaf is an open-source Java bytecode editor that simplifies the process of editing compiled Java applications. To make things easier Recaf abstracts away much of the <a href="https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html">class file format</a>. Difficult tasks such as updating stack-frames are done automatically. Along with additional features to assist in the process of editing classes, Recaf is the most feature-rich bytecode editor available.</p>
+		<div class="desktop-only">
+		    <br><br>
+			<center>
+			  <a href="https://github.com/Col-E/Recaf-Launcher/releases"><button id="download-button">Download Launcher</button></a>
+			</center>
+		</div>
 	  </div>
 	  <div class="flex-item">
 	    <img src="assets/class-decomp-view.png"/>
       </div>
 	</div>
+	</div>
 	
-    <div class="flex-container">
+	<div class="bar-container">
+    <div class="flex-container reverse-container">
+	  <div class="flex-item">
+		<h2>Edit bytecode with ease</h2>
+		<p>Right click on the name of any class, field, or method you want to edit, and then select <i>"Edit > Edit with assembler"</i>. Recaf's assembler comes with a number of quality of life features to make working with bytecode as user-friendly as possible.</p>
+		<ul>
+		  <li>Named variables and labels</li>
+		  <li>Control flow visualization</li>
+		  <li>Stack analysis</li>
+		  <li>Bytecode generation from snippets of Java source code</li>
+		  <li>A library of common bytecode patterns, ready for copy &amp; paste</li>
+		</ul>
+	  </div>
+	  <div class="flex-item">
+	    <img src="assets/method-assembler.png"/>
+      </div>
+	</div>
+	</div>
+	
+	<div class="bar-container">
+	<div class="flex-container">
+	  <div class="flex-item">
+		<h2>Don't know bytecode? No problem.</h2>
+		<p>You still need to know Java, but that is easier to work with than bytecode. Once a class is decompiled, just make any change you want and press the save. Recaf will recompile the class for you without any need to specify classpaths or provide extra dependencies. Even if you are compiling against libraries you don't have, Recaf will generate phantom classes to compile against. All you need to do is make sure the changes you make are syntatically correct Java code.</p>
+		<p>While this is very handy sometimes using the assembler is the better option. A primary example would be when you're working with obfuscated code that can't be decompiled into syntatically correct Java source code.</p>
+	  </div>
+	  <div class="flex-item">
+	    <img src="assets/class-decomp-with-edit-comments.png"/>
+      </div>
+	</div>
+	</div>
+	
+	<div class="bar-container">
+    <div class="flex-container reverse-container">
 	  <div class="flex-item">
 		<h2>Attach to running processes</h2>
-		<p>Using the <a href="https://docs.oracle.com/en/java/javase/22/docs/api/jdk.attach/com/sun/tools/attach/package-summary.html">attach API</a> Recaf can connect to already running Java processes. A list of discovered JVMs is displayed on the left, and clicking on one of them shows more details about the process. When connected, Recaf can view and transform classes loaded into the JVM.</p>
+		<p>Using the <a href="https://docs.oracle.com/en/java/javase/22/docs/api/jdk.attach/com/sun/tools/attach/package-summary.html">attach API</a> Recaf can connect to running Java processes on the local machine. A list of these processes, showing the process ID and entry-point class name is displayed in a list on the left. Clicking on one of these items shows more details about the process. Pressing the <i>"Connect"</i> button will attach to the selected process, showing all classes in Recaf as a workspace. Whenever you save a change in a class from a connected Java process, the modified bytecode is sent back to the process and replaces the old class with your modified version on the fly.</p>
 	  </div>
 	  <div class="flex-item">
 	    <img src="assets/attach-list-mc.png"/>
       </div>
 	</div>
+	</div>
 	
+	<div class="bar-container">
 	<div class="flex-container">
 	  <div class="flex-item">
 		<h2>Comment management</h2>
@@ -299,31 +372,8 @@
 		<img class="small-img" src="assets/class-inline-comments.png"/>
       </div>
 	</div>
+	</div>
 </div>
-
-<!--
-<div id="download-section">
-	<style>
-#download-section button {
-  font-size: 20px;
-  padding: 20px 40px;
-  background: linear-gradient(to bottom left, #001831, #000);
-  border: 1px solid rgb(50, 55, 60);
-  border-radius: 40px;
-  
-  -webkit-transition: all 1s;
-        transition: all 1s; 
-}
-#download-section button:hover {
-  background: linear-gradient(to bottom left, #11569d, #020204);
-  border: 1px solid rgb(86, 119, 153);
-}
-	</style>
-	<br><br><br>
-	<center><button>Download</button></center>
-	<br><br><br>
-</div>
--->
 
 </body>
 </html>
