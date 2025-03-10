@@ -2,8 +2,8 @@
 
 ## Core
 
-This portion of Recaf's source contains all of the back-end logic. This includes workspace modeling, services, and utilities.
+This `recaf-core` module is where all features and data-models are defined.
 
 ## UI
 
-This portion of Recaf's source is JavaFX application that enables interaction with features from `core` and `api`.
+The `recaf-ui` module is where the JavaFX UI integration with the `recaf-core` module is implemented.
