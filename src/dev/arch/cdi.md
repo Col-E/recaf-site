@@ -107,12 +107,12 @@ From here, we can define methods in `DecompileManager` to manage which decompile
 
 I'd just like to point out, what you can and should do is not always a perfect match. As a general rule of thumb, what you inject as a parameter should be wider in scope than what the current class is defined as. Here's a table for reference.
 
-| I have a...               | I want to inject a...         | Should I do that?      |
-| ------------------------- | ----------------------------- | ---------------------- |
-| `ApplicationScoped` class | `ApplicationScoped` parameter | :heavy_check_mark: Yes |
-| `ApplicationScoped` class | `Dependent` parameter         | :x: No                 |
-| `Dependent` class         | `ApplicationScoped` parameter | :heavy_check_mark: Yes |
-| `Dependent` class         | `Dependent` parameter         | :heavy_check_mark: Yes |
+| I have a...               | I want to inject a...         | Should I do that?                                            |
+| ------------------------- | ----------------------------- | ------------------------------------------------------------ |
+| `ApplicationScoped` class | `ApplicationScoped` parameter | :heavy_check_mark: Yes                                       |
+| `ApplicationScoped` class | `Dependent` parameter         | :warning: Only if you understand that the value won't be shared if you inject the type somewhere else as well. Each injection location will be given a different value. |
+| `Dependent` class         | `ApplicationScoped` parameter | :heavy_check_mark: Yes                                       |
+| `Dependent` class         | `Dependent` parameter         | :heavy_check_mark: Yes                                       |
 
 This table is for directly injecting types. If you have a `Dependent` type you can do `Instance<Foo>` like in the example above.
 
