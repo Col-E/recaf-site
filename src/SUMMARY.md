@@ -10,6 +10,7 @@
 - [Getting Started](dev/getting-started.md)
 - [Architecture](dev/arch/README.md)
 	- [Building](dev/arch/building.md)
+	- [Running](dev/arch/running.md)
 	- [Modules](dev/arch/modules.md)
 	- [Important libraries](dev/arch/important-libraries.md)
 	- [CDI](dev/arch/cdi.md)

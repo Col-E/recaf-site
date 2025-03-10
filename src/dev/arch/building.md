@@ -12,13 +12,7 @@ If you do not wish to bundle JavaFX for your current platform use `gradlew build
 
 Generally, you shouldn't ever skip tests but if you must, you can run `gradlew assemble -x compileTestJava`. This skips compiling the unit test code and thus running any tests afterwards.
 
-## Running Recaf directly from Gradle
-
-Use `gradlew run`.
-
-## Running Recaf directly from IntelliJ
-
-Create an application run configuration with `software.coley.recaf.Main` as the main class.
+## Speeding up builds in IntelliJ
 
 After you build Recaf at least once via `gradlew build` or `gradlew assemble` *(This step is required to generate the `RecafBuildConfig` class)* you can modify IntelliJ's settings for the project to drastically reduce the build time before running the application. Open your IntelliJ settings once the project is open and navigate to `Build, Execution, Deployment | Build Tools | Gradle`. Change the _"using"_ options to IDEA instead of Gradle. IntelliJ is usually smarter about recompiling only the necessary classes and thus it has less overhead to go through before running Recaf than using Gradle.
 
