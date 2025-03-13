@@ -3,6 +3,12 @@
 # User Documentation
 
 - [Summary](user/README.md)
+- [Installing](user/install/README.md)
+  - [Requirements](user/install/requirements.md)
+  - [Automated installation using the launcher](user/install/via-launcher.md)
+  - [Manual installation](user/install/via-manual.md)
+  - [Why is there a launcher?](user/install/why.md)
+
 
 # Developer Documentation
 
