@@ -31,6 +31,7 @@ You will need to download the four JavaFX artifacts suited for your operating sy
    - The newest version you can choose depends on your version of Java installed. JavaFX occasionally updates what version of Java it targets.
      - JFX 21 requires Java 17+
      - JFX 23 requires Java 21+
+     - JFX 24 requires Java 22+
      - You can check the [JFX release notes](https://github.com/openjdk/jfx/tree/master/doc-files) to see whenever they bump the minimum target JDK version.
 2. There will be a row labeled `Files`. Select `View All`. 
    - This will show you the list of each platform-specific release for the given version. 
