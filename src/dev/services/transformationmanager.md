@@ -63,6 +63,22 @@ public class MyTransformer implements JvmClassTransformer {
         // in the 'setup' and 'transform' methods above.
         return Collections.emptySet();
     }
+
+    /** Any recommended transformers that should be run before this one, though not strictly required. */
+    @Nonnull
+    @Override
+    public Set<Class<? extends ClassTransformer>> recommendedPredecessors() {
+        // Optional method, mainly used as a suggestion to users in the UI.
+        return Collections.emptySet();
+    }
+
+    /** Any recommended transformers that should be run after this one, though not strictly required. */
+    @Nonnull
+    @Override
+    public Set<Class<? extends ClassTransformer>> recommendedSuccessors() {
+        // Optional method, mainly used as a suggestion to users in the UI.
+        return Collections.emptySet();
+    }
 }
 ```
 
