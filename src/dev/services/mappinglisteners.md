@@ -11,7 +11,7 @@ Here is an example implementation with some comments explaining the contents of 
 ```java
 class ExampleMappingListener implements MappingApplicationListener {
     @Override
-    public void onPreApply(@Nonnull MappingResults mappingResults) {
+    public void onPreApply(@Nonnull Workspace workspace, @Nonnull MappingResults mappingResults) {
         // The mappings that were used to create the results
         Mappings mappings = mappingResults.getMappings();
         
@@ -32,7 +32,7 @@ class ExampleMappingListener implements MappingApplicationListener {
     }
     
     @Override
-    public void onPostApply(@Nonnull MappingResults mappingResults) {
+    public void onPostApply(@Nonnull Workspace workspace, @Nonnull MappingResults mappingResults) {
         // The results model is the same as the 'onPreApply' but the workspace has now been
         // updated to replace old classes with the updated instances.
     }
