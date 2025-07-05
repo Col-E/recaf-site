@@ -28,4 +28,4 @@ A brief overview of the major dependencies Recaf uses in each module.
 
 **Ikonli**: Recaf uses [Ikonli](https://github.com/kordamp/ikonli) for scalable icons. Specifically the [Carbon](https://kordamp.org/ikonli/cheat-sheet-carbonicons.html) pack.
 
-**Docking**: Recaf uses [Tiwul-FX's docking](https://github.com/panemu/tiwulfx-dock) framework for handling dockable tabs across all open windows.
+**Docking**: Recaf uses [BentoFX](https://github.com/Col-E/BentoFX) for handling dockable containers/tabs across all open windows.
