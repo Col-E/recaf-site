@@ -89,3 +89,13 @@ public class MyTransformer implements JvmClassTransformer {
 processingService.registerJvmClassTransformer(MyTransformer.class, () -> new MyTransformer());
 processingService.unregisterJvmClassTransformer(MyTransformer.class);
 ```
+
+## Transformer Context
+
+The transformer context is a utility that is shared between all transformers when being executed. It is used to:
+
+- Allow transformers to enhance stack analysis by providing custom `GetFieldLookup`, `GetStaticLookup`, `InvokeVirtualLookup` and `InvokeStaticLookup` instances
+- Allow transformers to access instances of other transformers
+- Track the updated state of transformed classes
+- Track mappings to apply at the end of transformer execution
+- Track any classes to remove at the end of transformer execution
