@@ -57,7 +57,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Download artifact
         id: download-artifact
-        uses: dawidd6/action-download-artifact@v7
+        uses: actions/download-artifact@v5
         with:
           name: book
           path: book/
