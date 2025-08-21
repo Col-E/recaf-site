@@ -8,6 +8,9 @@
   - [Automated installation using the launcher](user/install/via-launcher.md)
   - [Manual installation](user/install/via-manual.md)
   - [Why is there a launcher?](user/install/why.md)
+- [Obfuscation](user/obfuscation/README.md)
+  - [Name obfuscation](user/obfuscation/name.md)
+  - [Jar/zip obfuscation](user/obfuscation/zip.md)
 
 
 # Developer Documentation
