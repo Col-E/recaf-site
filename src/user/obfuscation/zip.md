@@ -22,7 +22,38 @@ For the following cases consider experimenting on your own with the following sa
 -  [hello.jar](../../assets/hello.jar) 
 -  [hello-trailing-slash.jar](../../assets/hello-trailing-slash.jar) 
 -  [hello-trailing-slash-0-length-locals.jar](../../assets/hello-trailing-slash-0-length-locals.jar) 
+-  [hello-only-lfh.jar](../../assets/hello-only-lfh.jar) 
 -  [hello-deceptive.jar](../../assets/hello-deceptive.jar) 
+
+To discover more about the structural differences between these files, you should use a hex editor tool like [ImHex](https://github.com/WerWolv/ImHex) using the [zip pattern](https://github.com/WerWolv/ImHex-Patterns/blob/master/patterns/zip.hexpat). Be aware, the ImHex zip pattern will fail if there is no *"End of Central Directory"* record since it works backwards from there. You can work around this limitation with a hack something like this:
+
+```c
+// Replace the last line of the ImHex zip pattern with this
+fn getName(u32 val) {
+    if (std::mem::read_unsigned(val, 4, std::mem::Endian::Little) == 0x2014b50) {
+        return "CentralDirectoryFileHeader"; 
+    } else if (std::mem::read_unsigned(val, 4, std::mem::Endian::Little) == 0x6054b50) {
+        return "EndOfCentralDirectory"; 
+    } else if (std::mem::read_unsigned(val, 4, std::mem::Endian::Little) == 0x4034b50) {
+        return "LocalFileHeader";
+    }
+    return "unknown";
+};
+struct Wrapper {
+    if (std::mem::read_unsigned(addressof(this), 4, std::mem::Endian::Little) == 0x2014b50) {
+        CentralDirectoryFileHeader cen;
+    } else if (std::mem::read_unsigned(addressof(this), 4, std::mem::Endian::Little) == 0x6054b50) {
+        EndOfCentralDirectory eocd;
+    } else if (std::mem::read_unsigned(addressof(this), 4, std::mem::Endian::Little) == 0x4034b50) {
+        LocalFileHeader loc;
+    }
+} [[name(getName(addressof(this)))]];
+
+// Only top-level structs can be mapped, so we make an array of wrappers, 
+// which can mutate to evaulate to each respective kind of Zip structure.
+// This approach has a number of problems but works well enough for the provided examples above.
+Wrapper entries[while(!std::mem::eof())] @ 0x00 [[inline]];
+```
 
 ### Obfuscated `java -jar` cases
 
@@ -48,7 +79,9 @@ The implementation of `ZipFile` used to be largely implemented by libzip back in
 
 Streaming a Jar/Zip file will read from the front. This adds the following conditions:
 
-- The file cannot have any leading junk bytes. It must start with a *"Local File Header"*
+- The file cannot have any leading junk bytes. It must start with a *"Local File Header"*.
+  - This is actually abusable because any *"Central Directory"* or *"End of Central Directory"* entries can be excluded. Many applications will not open a Zip file if it does not have these records. But if a Java application is written to use `ZipInputStream` these *"invalid"* files are perfectly fine.
+
 - The fields of the *"Local File Header"* must be correct, for instance the *"(un)compressed size"* and *"CRC"* values must be valid for the data held by the *"file data"* field.
 
 ### Obfuscated `FileSystem` cases
