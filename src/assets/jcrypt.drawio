@@ -1,0 +1,145 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
+  <diagram name="Page-1" id="vDly0UMQ0zGSvBa-KbLl">
+    <mxGraphModel dx="816" dy="485" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=60;exitDy=80;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="wJ_OFDv55czZUGQQUuD1-2" target="wJ_OFDv55czZUGQQUuD1-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-12" value="Main method is executed" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wJ_OFDv55czZUGQQUuD1-11">
+          <mxGeometry x="0.0223" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-2" value="&lt;b&gt;&amp;nbsp;app.jar&lt;/b&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp; - Main.class&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp; - jar.dat&lt;/div&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;align=left;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="270" y="210" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-3" value="" style="shape=mxgraph.cisco.people.androgenous_person;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="69" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;" edge="1" parent="1" source="wJ_OFDv55czZUGQQUuD1-3" target="wJ_OFDv55czZUGQQUuD1-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-6" value="&lt;div&gt;java -jar app.jar&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=default;fontSize=11;fontFamily=Lucida Console;" vertex="1" connectable="0" parent="wJ_OFDv55czZUGQQUuD1-5">
+          <mxGeometry x="-0.2549" y="2" relative="1" as="geometry">
+            <mxPoint x="21" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-9" value="User runs the application protected by the loader" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#03B3FF;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="132.5" y="210" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="wJ_OFDv55czZUGQQUuD1-10" target="wJ_OFDv55czZUGQQUuD1-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-15" value="Main method reads self&lt;div&gt;as jar file, parses contents&lt;/div&gt;&lt;div&gt;of &#39;jar.dat&#39;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wJ_OFDv55czZUGQQUuD1-14">
+          <mxGeometry x="-0.0476" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-10" value="void main()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="wJ_OFDv55czZUGQQUuD1-13" target="wJ_OFDv55czZUGQQUuD1-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-19" value="ClassLoader created&lt;div&gt;with decoded data&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wJ_OFDv55czZUGQQUuD1-18">
+          <mxGeometry x="0.0159" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-13" value="Extract packed classes + metadata" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="360" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="wJ_OFDv55czZUGQQUuD1-17" target="wJ_OFDv55czZUGQQUuD1-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-34" value="ClassLoader calls &#39;defineClass&#39;&amp;nbsp;&lt;div&gt;with decrypted class bytes&amp;nbsp;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wJ_OFDv55czZUGQQUuD1-33">
+          <mxGeometry x="0.196" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-17" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Use loader to call original program&#39;s &#39;void main()&#39;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="360" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-21" value="jar.dat &lt;i&gt;(AES/CBC encrypted blob)&lt;/i&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="320" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-22" value="Packed Classes" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=20;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-21">
+          <mxGeometry x="10" y="120" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-23" value="com/example/Foo.class" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-22">
+          <mxGeometry y="20" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-24" value="com/example/Bar.class" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-22">
+          <mxGeometry y="40" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-25" value="com/example/Buzz.class" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-22">
+          <mxGeometry y="60" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-26" value="Packed Resources" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=20;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-21">
+          <mxGeometry x="10" y="210" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-27" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;com/sun/jna/win/jnidispatch.dll&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-26">
+          <mxGeometry y="20" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-28" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;com/sun/jna/mac/jnidispatch.dll&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-26">
+          <mxGeometry y="40" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-29" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;com/sun/jna/linux/jnidispatch.dll&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-26">
+          <mxGeometry y="60" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-30" value="The blob is just an AES encrypted jar, so it contains classes and files like a regular jar." style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-21">
+          <mxGeometry x="170" y="120" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-35" value="JCrypt wraps this and makes a new class with a &#39;void main()&#39; to decrypt the jar, and load its contents via a ClassLoader" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-21">
+          <mxGeometry x="170" y="200" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-43" value="jar.dat&lt;div&gt;&lt;i&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;(Zip entry metadata)&lt;/font&gt;&lt;/i&gt;&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-21">
+          <mxGeometry x="10" y="30" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-45" value="The ZIP entry in &#39;app.jar&#39; for &#39;jar.dat&#39; contains metadata that includes the AES decryption keys" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="wJ_OFDv55czZUGQQUuD1-21">
+          <mxGeometry x="170" y="30" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="wJ_OFDv55czZUGQQUuD1-31" target="wJ_OFDv55czZUGQQUuD1-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-48" value="You get&lt;div&gt;malware&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wJ_OFDv55czZUGQQUuD1-47">
+          <mxGeometry x="0.0188" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-31" value="Original application logic runs" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="440" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-36" value="&lt;b&gt;&amp;nbsp;original.jar&lt;/b&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp; - Main.class&lt;br&gt;&amp;nbsp; - logger.conf&lt;/div&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;align=left;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-37" value="" style="sketch=0;html=1;aspect=fixed;strokeColor=none;shadow=0;fillColor=#3B8DF1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.process" vertex="1" parent="1">
+          <mxGeometry x="183.2" y="60" width="33.6" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-38" value="&lt;b&gt;&amp;nbsp;app.jar&lt;/b&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp; - Main.class&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&amp;nbsp; - jar.dat&lt;/div&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;align=left;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+          <mxGeometry x="270" y="40" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=100;exitDy=50;exitPerimeter=0;entryX=0.109;entryY=0.761;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wJ_OFDv55czZUGQQUuD1-36" target="wJ_OFDv55czZUGQQUuD1-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-40" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.031;entryY=0.652;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.993;exitY=0.804;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="wJ_OFDv55czZUGQQUuD1-37" target="wJ_OFDv55czZUGQQUuD1-38">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="280" as="sourcePoint" />
+            <mxPoint x="340" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=60;exitDy=80;exitPerimeter=0;entryX=0.603;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wJ_OFDv55czZUGQQUuD1-38" target="wJ_OFDv55czZUGQQUuD1-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-42" value="Original jar wrapped in loader from JCrypt" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;fontColor=light-dark(#000000,#03B3FF);" vertex="1" parent="1">
+          <mxGeometry x="147.5" y="100" width="105" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wJ_OFDv55czZUGQQUuD1-46" value="" style="image;html=1;image=img/lib/clip_art/computers/Virus_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="152.5" y="420" width="80" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

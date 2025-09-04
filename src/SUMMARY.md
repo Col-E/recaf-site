@@ -9,8 +9,18 @@
   - [Manual installation](user/install/via-manual.md)
   - [Why is there a launcher?](user/install/why.md)
 - [Obfuscation](user/obfuscation/README.md)
-  - [Name obfuscation](user/obfuscation/name.md)
   - [Jar/zip obfuscation](user/obfuscation/zip.md)
+  - [Name obfuscation](user/obfuscation/name.md)
+  - [Constant obfuscation](user/obfuscation/constant.md)
+  - [Flow obfuscation](user/obfuscation/flow.md)
+  - [Reference obfuscation](user/obfuscation/reference.md)
+  - [Loaders](user/obfuscation/loader.md)
+  - [Class parsing library exploitation](user/obfuscation/crash.md)
+  - [Java to native transpiling](user/obfuscation/transpiling.md)
+- [Deobfuscation](user/deobfuscation/README.md)
+  -  [Mapping](user\deobfuscation\mapping.md) 
+  -  [Transformers](user\deobfuscation\transformers.md) 
+
 
 
 # Developer Documentation

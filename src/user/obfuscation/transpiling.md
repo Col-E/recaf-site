@@ -1,0 +1,11 @@
+# Java to Native Obfuscation
+
+Reverse engineering Java is easier than reverse engineering native executables in *most cases*. 
+
+Consider the base case of an unobfuscated Java class vs an unobfuscated compiled C program. The Java class can be decompiled into nearly exact source code. When you compile a Java class there is no real *"optimization"* in the same sense that there is with native compilation via compilers like `gcc`. As an example, with a `switch` statement/expression you are either going to emit a `lookupswitch` or `tableswitch` depending on the keys used. There are explicit instructions used for using `switch` in Java, while in `C` this is not the case. Use a tool like [godbolt](https://godbolt.org/z/hzxWWKcjE) to compile a `switch` with different optimization flags (`-O0` through `-O3`) and you'll see there are many ways to represent them. Additionally the Java instruction set *(Printing the [JVMS chapter on instructions](https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-6.html) would be about 90 pages)* is *very simple* compared to an instruction set like Intel 64 / IA-32 *([Its over 5000 pages long](https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html))*. Simply put, the domain knowledge required to become proficient at Java reverse engineering is much less than for native reversing.
+
+Why does this matter? Obfuscators like [JNIC](https://jnic.dev/) can capitalize on this fact and transpile Java into C. If you can take the logic handling client side application security *(such as an offline license check)* its going to raise the barrier of entry if you make that logic native. From there you can use more annoying obfuscation techniques on the native side, such as [code virtualization](https://reverseengineering.stackexchange.com/questions/16753/how-do-enigma-themida-and-vmprotect-compare-to-each-other) via [VMP](https://vmpsoft.com/) or [Themida](https://www.oreans.com/Themida.php).
+
+## Handling native code in Recaf
+
+Currently Recaf only supports displaying basic information about native executables & libraries. To reverse native code you should extract the respective file and then drop it into [IDA](https://hex-rays.com/ida-free) or [Ghidra](https://github.com/NationalSecurityAgency/ghidra/).
