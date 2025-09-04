@@ -28,7 +28,7 @@ The preview column has several controls. From the image they are:
 
 As an example, here is a short video detailing how this window can be used on a generic obfuscated input:
 
-<video src="../../assets/deobfuscate-opaques.mp4"></video>
+<video src="../../assets/deobfuscate-opaques.mp4" controls></video>
 
 ## Built-in transformers
 
