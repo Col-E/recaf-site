@@ -36,4 +36,4 @@ TODO: Outline provided transformers with examples of what they match
 
 ## Custom transformers
 
-Plugins can register their own transformers with the [`TransformationManager`](..\..\dev\services\transformationmanager.md).
+Plugins can register their own transformers with the [`TransformationManager`](../../dev/services/transformationmanager.md).

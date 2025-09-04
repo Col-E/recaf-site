@@ -18,8 +18,8 @@
   - [Class parsing library exploitation](user/obfuscation/crash.md)
   - [Java to native transpiling](user/obfuscation/transpiling.md)
 - [Deobfuscation](user/deobfuscation/README.md)
-  -  [Mapping](user\deobfuscation\mapping.md) 
-  -  [Transformers](user\deobfuscation\transformers.md) 
+  -  [Mapping](user/deobfuscation/mapping.md)
+  -  [Transformers](user/deobfuscation/transformers.md)
 
 
 

@@ -54,4 +54,4 @@ int height = -7 + ("sad".hashCode() & 0b1000000000) + ("cat".hashCode() >> 10);
 
 ## Cleaning up constant obfuscation with Recaf
 
-See the following page:  [Transformers](..\deobfuscation\transformers.md) 
+See the following page:  [Transformers](../deobfuscation/transformers.md) 
