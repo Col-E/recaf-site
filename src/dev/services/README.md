@@ -7,7 +7,7 @@ As Recaf is driven by CDI, almost all of its features are defined as `@Inject`-a
 These are the services defined in the `core` module.
 
 * [AggregateMappingManager](aggregatemappingmanager.md)
-* AstService
+* [AstService](astservice.md)
 * AssemblerPipelineManager
 * [AttachManager](attachmanager.md)
 * [CallGraphService](callgraphservice.md)
@@ -43,13 +43,14 @@ The `ui` module defines a number of new service types dedicated to UI behavior.
 
 * Actions
 * CellConfigurationService _(Wraps these services)_
-  * ContextMenuProviderService
-  * IconProviderService
-  * TextProviderService
+  * [ContextMenuProviderService](contextmenuproviderservice.md)
+  * [IconProviderService](iconproviderservice.md)
+  * [TextProviderService](textproviderservice.md)
 * ConfigComponentManager
 * ConfigIconManager
+* [DockingManager](dockingmanager.md)
 * FileTypeSyntaxAssociationService
-* NavigationManager
+* [NavigationManager](navigationmanager.md)
 * [PathExportingManager](pathexportingmanager.md)
 * [PathLoadingManager](pathloadingmanager.md)
 * [ResourceSummaryService](resourcesummaryservice.md)
