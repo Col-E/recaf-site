@@ -165,4 +165,4 @@ Name a class `CON` in any variation of capitalization on a Windows computer and 
 
 ## Cleaning up names with Recaf
 
-See the following page:  [Mapping](..\deobfuscation\mapping.md) 
+See the following page:  [Mapping](../deobfuscation/mapping.md)
