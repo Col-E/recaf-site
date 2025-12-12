@@ -2,6 +2,7 @@
 
 A collection of IO utilities.
 
+- ByteHeaderUtil
 - ByteSource
   - ByteArraySource
   - ByteBufferSource
@@ -11,3 +12,10 @@ A collection of IO utilities.
 - ByteSourceConsumer
 - ByteSourceElement
 - ByteSources
+- IOUtil
+- ModulesIOUtil
+- ResourceUtil
+- SelfReferenceUtil
+- ShortcutUtil
+- UnsafeIO
+- ZipCreationUtils
