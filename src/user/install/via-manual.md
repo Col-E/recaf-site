@@ -50,4 +50,6 @@ You will need to download the four JavaFX artifacts suited for your operating sy
 
 Run the command `java -cp recaf.jar;dependencies/* software.coley.recaf.Main`.
 
+> NOTE: On Unix systems you would use `:` instead of `;` as the dependency path separator.
+
 Additional arguments for Recaf are documented in the [developer "Running" page](../../dev/arch/running.md).
