@@ -8,7 +8,9 @@ You can get Java 22+ from a variety of vendors. We have a list of recommended ve
 
 ## Step 2: Download Recaf
 
-You can grab the official releases from the [GitHub releases](https://github.com/Col-E/Recaf/releases). You will want to pick the larger JAR file with the `-all.jar` suffix as this is the jar file that bundles all transitive dependencies *(Except JavaFX since it is platform specific)*.
+~~You can grab the official releases from the [GitHub releases](https://github.com/Col-E/Recaf/releases). You will want to pick the larger JAR file with the `-generic.jar` suffix as this is the jar file that bundles all transitive dependencies *(Except JavaFX since it is platform specific)*.~~
+
+> **NOTE**: Once Recaf 4 begins proper releases the statement above will be accurate. But for the time being Recaf 4 is only publishing snapshots under CI.
 
 If you want to try out features and fixes before they get bundled into a release you can also check the [CI](https://github.com/Col-E/Recaf/actions/workflows/build.yml) for nightly artifacts. You will need to be signed into GitHub to access the artifact downloads though.
 
