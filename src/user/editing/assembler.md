@@ -17,7 +17,7 @@ The assembler for any class, field, or method can be accessed by right clicking 
 //     |
 //     V
 class Hello {
-    //    "message" will open the method assembler
+    //    "message" will open the field assembler
     //       |
     //       V
     String message = "hi";
