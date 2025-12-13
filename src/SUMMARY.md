@@ -46,7 +46,7 @@
   - [ConfigManager](dev/services/configmanager.md)
   - [ContextMenuProviderService](dev/services/contextmenuproviderservice.md)
   - [DecompileManager](dev/services/decompilemanager.md)
-  - [DockManager](dev/services/dockmanager.md)
+  - [DockingManager](dev/services/dockingmanager.md)
   - [GsonProvider](dev/services/gsonprovider.md)
   - [IconProviderService](dev/services/iconproviderservice.md)
   - [InfoImporter](dev/services/infoimporter.md)
