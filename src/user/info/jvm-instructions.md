@@ -196,8 +196,8 @@ What differentiates this list from the [official instruction specification](http
 | `lookupswitch` <ul><li>pair[...]<ul><li>key</li><li>label</li></ul></li></ul>   | key →   | jump to the label associated with the given `key`, or if no such entry in the table exists jump to the default label |
 | `tableswitch`  <ul><li>min</li><li>max</li><li>cases</li><li>default</li></ul>  | index → | jump to the label associated with `cases[min-index]`, or if the computed index of `min-index` is out of bounds jump to the default label |
 | `athrow`       | objectref → [empty], objectref  | throws an error or exception _(notice that the rest of the stack is cleared, leaving only a reference to the `Throwable`)_ |
-| `jsr` <ul><li>label</li></ul> ✝    | value → address         | jump to `label` while also pushing the current code address to the stack _(Generally this is immediately stored in a variable at the destination)_ |
-| `ret` <ul><li>var</li></ul> ✝      | [no change]             | jump to the code offset stored in the variable `var` |
+| `jsr` ✝ <ul><li>label</li></ul>   | value → address         | jump to `label` while also pushing the current code address to the stack _(Generally this is immediately stored in a variable at the destination)_ |
+| `ret` ✝ <ul><li>var</li></ul>     | [no change]             | jump to the code offset stored in the variable `var` |
 
 > **NOTE**: `jsr` and `ret` are deprecated instructions and are only present in classes from Java 7 or earlier. They cannot be used in Java 8 or above.
 
