@@ -17,6 +17,6 @@ It depends on who is developing the software and the intended purpose of the sof
 - Some developers assume that obfuscating their software makes it more secure. There can be *some* truth to this but only in the manner that it slows down bad actors rather than outright preventing them from tampering with the application. If your application has to run on a user's device, that user can, with enough time and knowledge, circumvent any local security measures.
 - Malware developers will heavily obfuscate their code to hide malicious behavior. This makes sense at first, but at the same time just brings more suspicion to the application as it is then heavily obfuscated. The main reason why they would do this is to bypass any scan-time detections of anti-malware programs looking for known malware signatures. Again, its a double-edged sword because sometimes anti-malware vendors end up making signatures for the obfuscation itself which leads to any use of the specific obfuscation strategy being flagged even if the application being obfuscated is not malicious in nature.
 
-## How does Recaf handle obfuscation?
+## What can Recaf do about obfuscation?
 
-Recaf has a number of features dedicated to defeating common obfuscation strategies. Some of them are always active and run in the background, meaning they do not require any user input to utilize. Others will require you to intentionally use them at your own discretion. The following pages in this section will cover different kinds of obfuscation and how different Recaf features can be used to address them.
+See the chapters under the [deobfuscation](../deobfuscation/index.html) section.
