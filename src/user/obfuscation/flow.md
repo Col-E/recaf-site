@@ -13,7 +13,7 @@ public void print() {
 
 After:
 ```java
-private static final int j;
+private static int j;
 
 public void print() {
 	if (j != 0) System.out.println(j == 2 << 0x10 ? "B" : "A");

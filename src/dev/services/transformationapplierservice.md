@@ -29,10 +29,18 @@ TransformationApplier applier = transformationApplierService.newApplier(workspaq
 // Specify a list of transformers you want to apply.
 List<Class<? extends JvmClassTransformer>> jvmTransformers = List.of(...);
 
+// Optional: Feedback mechanism (an interface you implement) allows you to:
+// - Cancel transformations at arbitrary times
+// - Filter which classes get transformed
+TransformationFeedback feedback = ...
+
 applier.transformJvm(jvmTransformers); // To apply to all JVM classes in the workspace
-applier.transformJvm(jvmTransformers, jvmTransformPredicate); // To apply to whitelisted JVM classes (per-filter)
+applier.transformJvm(jvmTransformers, feedback); // To apply to classes matched by the feedback mechanism, and allow cancellation
 
 // If the List<...> declaration is a big verbose you can inline it, and everything will play nice.
 applier.transformJvm(List.of(...));
 ```
 
+## Transformation Feedback
+
+The `TransformationFeedback` interface lets you control which classes get transformed, cancel a transformation in-progress, and be notified of transformation progress. If you do not provide a feedback instance, a no-op implementation will be used which allows transformation of all classes.
