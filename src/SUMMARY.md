@@ -90,3 +90,4 @@
 - [Miscellaneous](dev/misc/README.md)
   - [How to improve test cases](dev/misc/how-to-improve-test-cases.md)
   - [Configuring annotations in IntelliJ](dev/misc/configuring-annotations-in-intellij.md)
+  - [Diagnosing improper JavaFX thread access](dev/misc/diagnosing-jfx-thread-access.md)
