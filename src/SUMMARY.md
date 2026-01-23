@@ -43,6 +43,7 @@
 - [Plugins & scripts](dev/plugins-and-scripts/README.md)
   - [Plugins](dev/plugins-and-scripts/plugins.md)
   - [Scripts](dev/plugins-and-scripts/scripts.md)
+  - [Setup](dev/plugins-and-scripts/setup.md)
 - [Services](dev/services/README.md)
   - [AggregateMappingManager](dev/services/aggregatemappingmanager.md)
   - [AstService](dev/services/astservice.md)

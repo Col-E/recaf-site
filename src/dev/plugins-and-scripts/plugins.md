@@ -4,8 +4,6 @@
 
 A plugin is a JAR file that contains one or more classes with exactly one of them implementing `software.coley.recaf.plugin.Plugin`. When Recaf launches it looks in the plugins directory for JAR files that contain these plugin classes. It will then attempt to load and initialize them. Because a plugin is distributed as a JAR file a plugin developer can create complex logic and organize it easily across multiple classes in the JAR.
 
-You can find a template project for creating plugins on GitHub at [Recaf-Plugins/Recaf-4x-plugin-workspace](https://github.com/Recaf-Plugins/Recaf-4x-plugin-workspace).
-
 ## Using services
 
 Plugins can use services by annotating the class with `@Dependent` and annotating the constructor with `@Inject`. Here is an example:

@@ -109,6 +109,4 @@ public class LoadContentScript {
 }
 ```
 
-<div class="hidden">TODO: Fix link to chapter index page - https://github.com/rust-lang/mdBook/issues/2060</div>
-
 For the list of available services, see [the service lists](../services/index.html).
