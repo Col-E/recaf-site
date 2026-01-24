@@ -2,7 +2,7 @@
 
 ## Java 22 or higher
 
-Recaf uses features introduced in JDK 22, thus youwill need to have JDK 22 or above installed.
+Recaf uses features introduced in JDK 22, thus you will need to have JDK 22 or above installed.
 
 You can install JDK 22 or above from a number of OpenJDK distributors:
 
@@ -12,6 +12,6 @@ You can install JDK 22 or above from a number of OpenJDK distributors:
 
 ## JavaFX 22 or higher
 
-Recaf uses features introduced in JavaFX 22, thus youwill need to have JavaFX 22 or above downloaded.
+Recaf uses features introduced in JavaFX 22, thus you will need to have JavaFX 22 or above downloaded. When you use the [launcher](https://github.com/Col-E/Recaf-Launcher/) to run Recaf the latest compatible version of JavaFX will be automatically downloaded for you.
 
 Installation steps will be provided in the following [launcher](via-launcher.md) and [manual](via-manual.md) pages.
