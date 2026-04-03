@@ -118,11 +118,11 @@ This table is for directly injecting types. If you have a `Dependent` type you c
 
 > What if I need a value dynamically, and getting values from the constructor isn't good enough?
 
-Firstly, reconsider if you're designing things effectively if this is a problem for you. Recall that you can use `Instance<T>` to essentially inject a producer of `T`. But on the off chance that there is no real alt
-In situations where providing values to constructors is not feasible, the `Recaf` class provides methods for accessing CDI managed types.
+Firstly, reconsider if you're designing things effectively if this is a problem for you. Recall that you can use `Instance<T>` to essentially inject a producer of `T`. In situations where providing values to constructors is not feasible, the `Recaf` class provides methods for accessing CDI managed types.
 
 * `Instance<T> instance(Class<T>)`: Gives you a `Supplier<T>` / `Iterable<T>` for the requested type `T`. You can use `Supplier.get()` to grab a single instance of `T`, or use `Iterable.iterator()` to iterate over multiple instances of `T` if more than one implementation exists.
 * `T get(Class<T>)`: Gives you a single instance of the requested type `T`.
+* Some produced values are meant to be kept around forever, like when we use it to register decompilers or other feature implementations. However, there are some cases where produced values are temporary. For these cases make sure to call `instance.destory(...)` on the produced value when it is no longer in use. CDI will keep a reference to anything it deems *in scope*. This is especially noticeable if the in produced instance is produced within an application-scope and holds references to large objects *(Like a large `byte[]`)*. Destroying the produced values prevents memory leaks.
 
 ## How do I know which scope to use when making new services?
 
