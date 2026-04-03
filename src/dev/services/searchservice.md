@@ -11,7 +11,7 @@ The search service allows you to search workspaces:
 
 All searches are built from `Query` instances. There are three types of queries:
 
-- `AndroidClassQuery` *(not yet implemented)*
+- `AndroidClassQuery`
 - `JvmClassQuery`
 - `FileQuery`
 

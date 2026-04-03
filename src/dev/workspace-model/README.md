@@ -129,7 +129,7 @@ Here is a tree model of the current `PathNode` types.
           - `ClassMemberPathNode`
             - `AnnotationPathNode`
             - `LocalVariablePathNode`
-            - `InstructionPathNode`
+            - `JvmInstructionPathNode` / `AndroidInstructionPathNode`
             - `ThrowsPathNode`
             - `CatchPathNode`
           - `InnerClassPathNode`

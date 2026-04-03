@@ -43,7 +43,7 @@ while (!ready.getValue()) {
 
 ## Getting an entry point
 
-The graph is has its vertices bundled by which class defines each method. So to get your entry-point vertex in the graph you need the `JvmClassInfo` reference of the class defining the method you want to look at.
+The graph is has its vertices bundled by which class defines each method. So to get your entry-point vertex in the graph you need the `ClassInfo` reference of the class defining the method you want to look at.
 
 ```java
 // Given this example
@@ -54,7 +54,7 @@ class Foo {
 // Get the class reference
 ClassPathNode clsPath = workspace.findJvmClass("com/example/Foo");
 if (clsPath == null) return;
-JvmClassInfo cls = clsPath.getValue().asJvmClass();
+ClassInfo cls = clsPath.getValue();
 
 // Get the methods container for the class
 ClassMethodsContainer containerMain = graph.getClassMethodsContainer(cls);

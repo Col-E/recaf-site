@@ -11,27 +11,11 @@ The attach manager allows you to:
 
 ## Accessing the current workspace
 
-The current workspace is accessed via `getWorkspace()`. 
+The current workspace is accessed via `getCurrent()`. 
 
 ```java
-Workspace workspace = workspaceManager.getWorkspace();
-if (workspace != null) {
-    // ...
-} else {
-    // No workspace open
-}
-```
-
-This method is also annotated with `@Produces` and `@Dependent` which allows `@Inject` to operate on other `@Dependent` classes & scripts.
-
-```java 
-@Inject Constructor(Workspace workspace) {
-    if (workspace != null) {
-           // ...
-    } else {
-        // No workspace open
-    }
-}
+// The return value is never 'null' - if no workspace is open you get a 'EmptyWorkspace'
+Workspace workspace = workspaceManager.getCurrent();
 ```
 
 ## Setting the workspace
