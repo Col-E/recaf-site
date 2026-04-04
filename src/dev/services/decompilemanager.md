@@ -1,4 +1,4 @@
-# DecompileManager
+# DecompilerManager
 
 The decompile manager allows you to:
 
@@ -30,7 +30,7 @@ JvmDecompiler decompiler = decompilerManager.getJvmDecompilers().stream()
 
 ## Decompiling a class
 
-If you want to pass a specific decompiler, get an instance and pass it to the decompile functions provided by `DecompileManager`:
+If you want to pass a specific decompiler, get an instance and pass it to the decompile functions provided by `DecompilerManager`:
 
 * `decompile(Workspace, JvmClassInfo)` - Uses the target decompiler *(specified in the config)*
 * `decompile(JvmDecompiler, Workspace, JvmClassInfo)` - Uses the specified decompiler passed to the method
