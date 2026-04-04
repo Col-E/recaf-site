@@ -48,3 +48,7 @@ Classes in the workspace tree can also be interacted with. Right clicking on the
 Classes can alternatively be moved. Moving differs slightly from renaming, it allows you to select a package in the workspace to move the class into. Technically at the end of the day it is still renaming, but the UX is more like what you would expect from the move operation in an IDE like IntelliJ.
 
 <figure><img src="../../assets/mapping-manual-on-tree-package.png" alt="remap tree-package" /><figcaption><p>Right clicking on packages lets you rename whole packages at a time</p></figcaption></figure>
+
+## Saving your mappings
+
+After you have mapped classes, fields, or methods from Recaf you can export the aggregate mappings into any of the supported formats from the _"Mapping > Export"_ submenu. This information is lost when you close a workspace so make sure to keep a copy if you want to revisit some obfuscated application later. If you use _"File > Export application"_ with mapped results and load that again later Recaf will have no awareness that there are mappings since from its perspective you've just loaded any regular Java application.
