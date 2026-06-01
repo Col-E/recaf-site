@@ -6,6 +6,7 @@ The config manager allows you to:
 * Register and unregister your own `ConfigContainer` values
   * Useful for plugin developers who want to expose config values in the UI
 * Register and unregister listeners which are notified when new `ConfigContainer` values are registered and unregistered.
+* Create, update, remove *"profiles"* to allow quickly changing all config values for different use cases
 
 ## Iterating over registered containers
 
@@ -69,3 +70,24 @@ configManager.addManagedConfigListener(new ManagedConfigListener() {
     }
 });
 ```
+
+## Working with profiles
+
+```java
+// Profiles can be saved by passing a String (saved locally in the Recaf directory)
+// or a Path (saved in any arbitrary location)
+configManager.exportProfile("profile-name");
+configManager.exportProfileTo(Paths.get("D:/external-profile.zip"));
+
+// Same idea applies for importing profiles.
+configManager.importProfile("profile-name");
+configManager.importProfileFrom(Paths.get("D:/external-profile.zip"));
+
+// Local profiles can be checked for & deleted by name.
+if (configManager.hasProfile("profile-name"))
+    configManager.deleteProfile("profile-name");
+
+// The names of local profiles can also be iterated.
+List<String> names = configManager.getProfileNames();
+```
+
