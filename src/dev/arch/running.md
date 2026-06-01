@@ -12,7 +12,12 @@ Use `gradlew run`. This will build Recaf if you haven't already done so, then la
 
 <figure><img src="../../assets/idea-run-config.png" alt=""><figcaption><p>Context menu showing the 'run' option in the Recaf main class.</p></figcaption></figure>
 
-Create an application run configuration with `software.coley.recaf.Main` as the main class. You can do this simply by opening that class in IntelliJ, right clicking to open a context menu anywhere in the code, and selecting the _"Run"_ option with the green :arrow_forward: icon.
+Create an application run configuration with either:
+
+-  `software.coley.recaf.UIMain` _(In `recaf-ui` module)_ 
+-  `software.coley.recaf.Main` _(In `recaf-core` module, you will need to change the config module from `recaf-core` to `recaf-ui`)_
+
+You can do this simply by opening that class in IntelliJ, right clicking to open a context menu anywhere in the code, and selecting the _"Run"_ option with the green :arrow_forward: icon.
 
 ## Using Recaf as a command-line application
 
@@ -30,4 +35,7 @@ When using `--script` the target file is a [Recaf script file](../plugins-and-sc
 
 - If you use `--input` with `--script` then the script will be run _after_ the workspace is loaded from the given input.
 
-When using `--headless` it is assumed you are also going to use `--script` to automate some task without needing to launch any user interface.
+When using `--headless` it is assumed you are either going to:
+
+- Use `--script` to automate some task without needing to launch any user interface.
+- Use `--idle` to keep Recaf running idle in the background, generally only useful if you have a plugin that allows remote interfacing like a MCP server.
