@@ -7,13 +7,18 @@ As Recaf is driven by CDI, almost all of its features are defined as `@Inject`-a
 These are the services defined in the `core` module.
 
 * [AggregateMappingManager](aggregatemappingmanager.md)
-* [AstService](astservice.md)
+* AndroidAnalysisService
+* AntiReversalAnalysisService
+* AreaAnalysisService
 * AssemblerPipelineManager
+* [AstService](astservice.md)
 * [AttachManager](attachmanager.md)
 * [CallGraphService](callgraphservice.md)
 * [CommentManager](commentmanager.md)
 * [ConfigManager](configmanager.md)
 * [DecompileManager](decompilemanager.md)
+* EntryAnalysisService
+* FileMetadataAnalysisService
 * [GsonProvider](gsonprovider.md)
 * [InfoImporter](infoimporter.md)
 * [InheritanceGraphService](inheritancegraphservice.md)
@@ -31,6 +36,8 @@ These are the services defined in the `core` module.
 * [ScriptEngine](scriptengine.md)
 * [ScriptManager](scriptmanager.md)
 * [SearchService](searchservice.md)
+* SimilarityMappingService
+* SimilaritySearchService
 * [SnippetManager](snippetmanager.md)
 * [TransformationApplierService](transformationapplierservice.md)
 * [TransformationManager](transformationmanager.md)
