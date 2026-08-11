@@ -93,6 +93,111 @@ Results results = searchService.search(workspace, new ReferenceQuery(
 ));
 ```
 
+### Structure querying
+
+The search service also allows you to search classes for structural patterns. This can be useful when you want to find the same class across multiple resources and are sure that that class can be uniquely identified in some way. Here's an example that would find the `MultiPlayerGameMode` class in a Minecraft client workspace.
+
+```java
+// Fields to match:
+//  private float destroyProgress;
+//  private float destroyTicks;
+//  private int destroyDelay;
+//  private boolean isDestroying;
+FieldMatcher fieldFloat = new FieldMatcherBuilder()
+        .type(Type.FLOAT_TYPE)
+        .accessFlags(ACC_PRIVATE)
+        .build();
+FieldMatcher fieldInt = new FieldMatcherBuilder()
+        .type(Type.INT_TYPE)
+        .accessFlags(ACC_PRIVATE)
+        .build();
+FieldMatcher fieldBoolean = new FieldMatcherBuilder()
+        .type(Type.BOOLEAN_TYPE)
+        .accessFlags(ACC_PRIVATE)
+        .build();
+
+// Instructions to match in method: public boolean destroyBlock(BlockPos pos, Direction direction)
+//    AA:
+//        line 263
+//        aload this
+//        fconst_0
+//        putfield net/minecraft/client/multiplayer/MultiPlayerGameMode.destroyProgress F
+//    AB:
+//        line 264
+//        aload this
+//        fconst_0
+//        putfield net/minecraft/client/multiplayer/MultiPlayerGameMode.destroyTicks F
+//    AC:
+//        line 265
+//        aload this
+//        iconst_5
+//        putfield net/minecraft/client/multiplayer/MultiPlayerGameMode.destroyDelay I
+MethodMatcher resetBreaking = new MethodMatcherBuilder()
+        .returnType(Type.BOOLEAN_TYPE)
+        .parameters(ListMatcher.anyOfSize(2))
+        .accessFlags(ACC_PUBLIC)
+        .instructions(List.of(
+                // Wildcard to allow any prefix matching
+                InsnMatcher.ANY,
+
+                // this.destroyProgress = 0.0f;
+                JvmOpcodeInsnMatcher.of(ALOAD),
+                JvmOpcodeInsnMatcher.of(FCONST_0),
+                JvmOpcodeInsnMatcher.of(PUTFIELD),
+                InsnMatcher.ANY, // Intermediate label + line
+                // this.destroyTicks = 0.0f;
+                JvmOpcodeInsnMatcher.of(ALOAD),
+                JvmOpcodeInsnMatcher.of(FCONST_0),
+                JvmOpcodeInsnMatcher.of(PUTFIELD),
+                InsnMatcher.ANY, // Intermediate label + line
+                // this.destroyDelay = 5;
+                JvmOpcodeInsnMatcher.of(ALOAD),
+                JvmOpcodeInsnMatcher.of(ICONST_5),
+                JvmOpcodeInsnMatcher.of(PUTFIELD),
+
+                // Wildcard to allow any suffix matching
+                InsnMatcher.ANY
+        ), CountConstraint.atLeast(9))
+        .build();
+
+// Our class to find should be:
+//  - public
+//  - have the fields we defined above (destroyProgress, destroyTicks, destroyDelay, isDestroying)
+//  - have the method we defined above (destroyBlock)
+//  It can have additional fields and methods, but must have at least the ones we defined.
+ClassQuery query = new ClassQueryBuilder()
+        .accessFlags(ACC_PUBLIC)
+        .fields(fieldFloat, fieldFloat, fieldInt, fieldBoolean)
+        .methods(resetBreaking)
+        .build();
+
+// Should get just one result for 'MultiPlayerGameMode'
+Results results = searchService.search(workspace, query);
+```
+
+You can look at the classes in `software.coley.recaf.services.search.query.structure` to see what sort of matches can be made. The gist is:
+
+- Class attributes
+    - Name
+    - Super-name + interfaces
+    - Access flags 
+    - Annotations
+- Fields + their attributes
+    - Name
+    - Descriptor
+    - Access flags
+    - Annotations
+    - Initial value _(for constant fields with a `ConstantValue` attribute)_ 
+- Methods + their attributes
+    - Name
+    - Return descriptor
+    - Parameter descriptors
+    - Access flags
+    - Annotations
+    - Thrown exceptions
+    - Try-catch blocks
+    - Instruction patterns
+
 ## Feedback handler
 
 Passing a feedback handler to the `search`(...) methods allows you to control what classes and files are searched in by implementing the `doVisitClass(ClassInfo)` and `doVisitFile(FileInfo)` methods. Here is a basic example which limits the search to only classes in a given package:
