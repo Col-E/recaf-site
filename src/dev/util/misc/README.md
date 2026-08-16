@@ -1,34 +1,36 @@
-# Misc
+# Miscellaneous
 
 A collection of unsorted utilities.
 
 - AccessFlag
 - AccessPatcher
-- BlwUtil
+- AsmInsnUtil
 - CancelSignal
 - [ClassDefiner](classdefiner.md)
+- ClassFieldPair
 - ClassLoaderInternals
+- ClassMethodPair
 - ClasspathUtil
-- CollectionUtil
 - DesktopUtil
 - DevDetection
+- DexInsnUtil
 - EscapeUtil
+- ExcludeFromJacocoGeneratedReport
 - Handles
-- InternalPath
+- JavaDowngraderUtil
 - JavaVersion
-- JigsawUtil
+- JdkValidation
 - Keywords
-- LookupUtil
 - MemoizedFunctions
-- MultiMap
-- MultiMapBuilder
+- NameTypePair
 - NumberUtil
 - PlatformType
 - ReflectUtil
 - RegexUtil
-- Streams
+- StringDecodingResult
 - StringDiff
 - StringUtil
 - TestEnvironment
+- Translatable
 - Types
 - UnsafeUtil

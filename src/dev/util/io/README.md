@@ -13,9 +13,11 @@ A collection of IO utilities.
 - ByteSourceElement
 - ByteSources
 - IOUtil
+- InternalPath
 - ModulesIOUtil
 - ResourceUtil
 - SelfReferenceUtil
 - ShortcutUtil
 - UnsafeIO
 - ZipCreationUtils
+- ZipDecompressionLimiter
