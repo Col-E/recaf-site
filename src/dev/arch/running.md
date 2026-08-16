@@ -27,7 +27,14 @@ Recaf offers a number of command-line arguments _(outlined in [LaunchCommand](ht
 | -------------------- | ------------------------------------------------------------ | --------------------------- |
 | `-i` or `--input`    | Input to load into a workspace on startup.                   | `-i game.jar`               |
 | `-s` or `--script`   | Script to run on startup.                                    | `-s LoadContent.java`       |
-| `-h` or `--headless` | Flag to skip over initializing the UI. Should be paired with `-i` or `-s`. | `-h -s GenerateReport.java` |
+| `-h` or `--headless` | Flag to skip over initializing the UI. Should be paired with `-i`, `-s`, or `--idle`. | `-h -s GenerateReport.java` |
+| `--idle`             | Keep headless Recaf running after startup for plugin-hosted services. | `-h --idle`                 |
+| `-d` or `--datadir`  | Override the directory to store Recaf information within.    | `-d ./recaf-data`           |
+| `-r` or `--extraplugins` | Point to an external location to load additional plugins. | `-r ./plugins`              |
+| `-q` or `--silent`   | Disable SLF4J logging to stdout.                             | `-q -s GenerateReport.java` |
+| `-v` or `--version`  | Display the version information.                             | `-v`                        |
+| `-l` or `--listservices` | List all registered services.                            | `-l`                        |
+| `-p` or `--listprops` | Display system properties.                                  | `-p`                        |
 
 When using `--input` the target file is any file that you want to open in Recaf _(The same way you would do so via the file menu, or by drag-and-drop)_.
 
