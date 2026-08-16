@@ -166,26 +166,54 @@
     </ul>
   </nav>
 </div>
-
-<!-- Remove this later -->
+<section id="main-display-section">
 <style>
-#temp {
-  border: 1px solid #383838;
-  display: inline-block;
-  padding: 0px 30px 30px 30px;
-  background: rgb(15, 17, 17);
-  margin-top: 40px;
+.main-container {
+  position: relative;
+  width: 100%;
+  height: 64rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-</style>
-
-<center><div id="temp">
-<h2>Notice: The Recaf 4.X site is still a WIP</h2>
-<p>The layout isn't complete yet and the user-guide is mostly empty at the moment. Most of the effort thus far has gone into the developer guide.</p>
-<p>Please refer the the main <a href="https://github.com/Col-E/Recaf">project README</a> while we finish up this new layout.</p>
-</div></center>
-
-<div id="overview-section">
-	<style>
+.main-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1; /* Pushes video behind content */
+}
+.main-container img {
+  max-width: 35vw;
+}
+.main-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  z-index: 0;
+}
+.main-container .content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-family: sans-serif;
+  max-width: 50%;
+  padding: 0px;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+.desktop-only {
+  display: none;  
+}
 #download-button {
   cursor: pointer;
   font-size: 20px;
@@ -213,168 +241,485 @@
   margin-left: -25px;
   margin-right: 15px;
 }
-
-#overview-section img {
-  max-width: 90vw;
-
-  -webkit-box-shadow: 0.25em 0.25em 2em rgba(0, 0, 0, 0.25);
-          box-shadow: 0.25em 0.25em 2em rgba(0, 0, 0, 0.25);
+@media (max-width: 900px) {
+  .main-container {
+    height: 30rem;
+  }
+  .main-container img {
+    max-width: 90%;
+  }
+  .main-container .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-family: sans-serif;
+    max-width: 80%;	
+  }
 }
-
-#overview-section h2 {
-   margin-top: 0;
-}
-
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: stretch;
-  align-content: stretch;
-  padding: 20px;
-}
-.bar-container:nth-child(odd) {
-  background: rgb(15, 17, 17);
-  border-top: 1px solid rgb(50, 55, 60);
-  border-bottom: 1px solid rgb(50, 55, 60);
-}
-.flex-item {
-  display: block;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
-  padding: 0px;
-}
-
-.desktop-only {
-  display: none;  
-}
-
 @media screen and (min-width: 768px) {
-  #overview-section img {
-    max-width:100%;
-    height:auto;
-  }
-
-  .flex-container {
-    max-width: 1100px;
-    flex-direction: row;
-    padding: 30px;
-  }
-  .flex-item {
-    justify-content: space-between;
-    flex-basis: 50%;
-    padding: 15px;
-	max-width: 1000px;
-  }
-  .reverse-container {
-    flex-direction: row-reverse;
-  }
-  .bar-container {
-	display: flex;
-	align-items: center;
-    justify-content: center;
-  }
-  
-  #comment-hover {
-    display: flex;
-    justify-content: center;
-  }
-  #comment-hover img:last-child {
-    display: none;  
-  }
-  #comment-hover:hover img:last-child {
-    display: block;  
-  }
-  #comment-hover:hover img:first-child {
-    display: none;  
-  }
-  
   .desktop-only {
     display: inherit;  
   }
 }
-	</style>
-	<div class="bar-container">
-	<div class="flex-container">
-	  <div class="flex-item">
-		<h2>Recaf</h2>
-		<p>Recaf is an open-source Java bytecode editor that simplifies the process of editing compiled Java applications. To make things easier Recaf abstracts away much of the <a href="https://docs.oracle.com/javase/specs/jvms/se22/html/jvms-4.html">class file format</a>. Difficult tasks such as updating stack-frames are done automatically. Along with additional features to assist in the process of editing classes, Recaf is the most feature-rich bytecode editor available.</p>
-		<div class="desktop-only">
-		    <br>
-			<center>
-			  <a href="https://github.com/Col-E/Recaf-Launcher/releases"><button id="download-button">Download Launcher</button></a>
-			  <p><i>(Additional installation / usage instructions are in <a href="user/install/via-launcher.html">the user-guide</a>)</i></p>
-			</center>
-		</div>
+</style>
+<div class="main-container">
+  <video autoplay muted loop playsinline class="background-video">
+      <source src="assets/matrix-jvm-text-bg.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
+  <div class="overlay"></div>
+  <div class="content">
+	  <img src="assets/generic-pic-of-recaf.png"/>
+      <p>Recaf is an open-source Java bytecode editor that simplifies the process of editing compiled Java applications.</p>
+	  <div class="desktop-only">
+        <center>
+          <a href="https://github.com/Col-E/Recaf-Launcher/releases"><button id="download-button">Download Launcher</button></a>
+        </center>
 	  </div>
-	  <div class="flex-item">
-	    <img src="assets/class-decomp-view.png"/>
-      </div>
-	</div>
-	</div>
-	
-	<div class="bar-container">
-    <div class="flex-container reverse-container">
-	  <div class="flex-item">
-		<h2>Edit bytecode with ease</h2>
-		<p>Right click on the name of any class, field, or method you want to edit, and then select <i>"Edit > Edit with assembler"</i>. Recaf's assembler comes with a number of quality of life features to make working with bytecode as user-friendly as possible.</p>
-		<ul>
-		  <li>Named variables and labels</li>
-		  <li>Control flow visualization</li>
-		  <li>Stack analysis</li>
-		  <li>Bytecode generation from snippets of Java source code</li>
-		  <li>A library of common bytecode patterns, ready for copy &amp; paste</li>
-		</ul>
-	  </div>
-	  <div class="flex-item">
-	    <img src="assets/method-assembler.png"/>
-      </div>
-	</div>
-	</div>
-	
-	<div class="bar-container">
-	<div class="flex-container">
-	  <div class="flex-item">
-		<h2>Don't know bytecode? No problem.</h2>
-		<p>You still need to know Java, but that is easier to work with than bytecode. Once a class is decompiled, just make any change you want and press the save. Recaf will recompile the class for you without any need to specify classpaths or provide extra dependencies. Even if you are compiling against libraries you don't have, Recaf will generate phantom classes to compile against. All you need to do is make sure the changes you make are syntatically correct Java code.</p>
-		<p>While this is very handy, sometimes using the assembler is the better option. An example would be with obfuscated code that can't be decompiled into syntatically correct Java code.</p>
-	  </div>
-	  <div class="flex-item">
-	    <img src="assets/class-decomp-with-edit-comments.png"/>
-      </div>
-	</div>
-	</div>
-	
-	<div class="bar-container">
-    <div class="flex-container reverse-container">
-	  <div class="flex-item">
-		<h2>Attach to running processes</h2>
-		<p>Using the <a href="https://docs.oracle.com/en/java/javase/22/docs/api/jdk.attach/com/sun/tools/attach/package-summary.html">attach API</a> Recaf can connect to running Java processes on the local machine. A list of these processes, showing the process ID and entry-point class name is displayed in a list on the left. Clicking on one of these items shows more details about the process. Pressing the <i>"Connect"</i> button will attach to the selected process, showing all classes in Recaf as a workspace. Whenever you save a change in a class from a connected Java process, the modified bytecode is sent back to the process and replaces the old class with your modified version on the fly.</p>
-	  </div>
-	  <div class="flex-item">
-	    <img src="assets/attach-list-mc.png"/>
-      </div>
-	</div>
-	</div>
-	
-	<div class="bar-container">
-	<div class="flex-container">
-	  <div class="flex-item">
-		<h2>Comment management</h2>
-		<p>Documenting unfamiliar code can serve multiple purposes. In a normal application, comments can summarize what the purpose of a class, field, or method is, but when reverse engineering an unknown application they can serve more unique purposes. For instance you can use the commenting feature as a way of leaving bookmarks to areas you would like to revisit later.</p>
-		<p class="desktop-only">Hover over the image to see how Recaf takes your comments and injects them into decompiler output.</p>
-	  </div>
-	  <div class="flex-item" id="comment-hover">
-	    <img class="small-img" src="assets/analysis-comments-list.png"/>
-		<img class="small-img" src="assets/class-inline-comments.png"/>
-      </div>
-	</div>
-	</div>
+  </div>
 </div>
 
+<section class="features-section">
+<style>
+.features-section {
+  padding: 6rem 1.5rem;
+  background: rgb(8, 11, 15);
+  border-top: 1px solid rgb(45, 48, 51);
+  border-bottom: 1px solid rgb(45, 48, 51);
+}
+
+/* Header area */
+.features-section .section-heading {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+/* Titles */
+.features-section h2 {
+  font-size: 3rem;
+  margin: 0;
+  color: rgb(245, 247, 251);
+}
+.features-section h3 {
+  font-size: 1.75rem;
+  color: rgb(245, 247, 251);
+}
+
+
+/* Grid layout / elements */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.features-grid p {
+  margin: 1rem auto 0;
+  max-width: 620px;
+  line-height: 1.7;
+}
+.feature-card {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+  align-items: top; 
+  overflow: hidden;
+  padding: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+.feature-card:hover {
+  /* Really want to indicate to the user these are clickable... */
+  border-color: rgba(138, 180, 255, 0.38);
+  background: rgba(230, 240, 255, 0.15);
+  cursor: pointer;
+}
+.feature-card h3 {
+  margin: 0 0 0.55rem;
+}
+.feature-card p {
+  margin: 0;
+  line-height: 1.65;
+  color: rgb(180, 186, 192);
+  min-height: 5em; /* Hack to make things top-aligned by forcing items to be ~3 lines tall */
+}
+
+@media (max-width: 900px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .features-section {
+    padding: 4rem 1rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+  <div class="section-heading">
+    <h2>Features</h2>
+    <p>Recaf combines decompilation, bytecode editing, live patching, and <i>much more</i> into a single editor.</p>
+  </div>
+
+  <div class="feature-grid">
+    <button class="feature-card" id="card-decompile" popovertarget="overlay-decompile">
+      <h3>Decompile &amp; edit Java</h3>
+      <p>View decompiled code, make changes as plain Java, and recompile classes back into the workspace. No dependencies needed.</p>
+    </button>
+
+    <button class="feature-card" id="card-assembler" popovertarget="overlay-assembler">
+      <h3>Edit bytecode directly</h3>
+      <p>Use Recaf's assembler to modify JVM instructions intuitively with labels, variable names, and additional quality-of-life tools.</p>
+    </button>
+
+    <button class="feature-card" id="card-attach" popovertarget="overlay-attach">
+      <h3>Patch running apps</h3>
+      <p>Attach to running Java processes and redefine classes without restarting the target application.</p>
+    </button>
+
+    <button class="feature-card" id="card-search" popovertarget="overlay-search">
+      <h3>Search for anything</h3>
+      <p>Find classes, members, strings, constants, references, and bytecode patterns quickly.</p>
+    </button>
+
+    <button class="feature-card" id="card-plugins" popovertarget="overlay-plugins">
+      <h3>Extend with plugins</h3>
+      <p>Automate workflows using scripts &amp; plugins Recaf’s modular APIs.</p>
+    </button>
+
+    <button class="feature-card" id="card-deobfuscation" popovertarget="overlay-deobfuscation">
+      <h3>Debfuscation tools</h3>
+      <p>Rename symbols, simplify obfuscated bytecode, and inspect specially crafted Java archives that confuse traditional tooling.</p>
+    </button>
+  </div>
+  <center><p><i>Click a feature card to read more.</i></p></center>
+<style>
+.feature-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px); /* Fixed position means we need to manually offset padding in our sizes */
+  max-width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgb(8, 11, 15);
+  border: none;
+  opacity: 0;
+}
+.feature-overlay:popover-open {
+  opacity: 1;
+}
+.feature-overlay video,
+.feature-overlay img {
+  max-width: 94vw;
+  padding: 20px;
+}
+.feature-overlay .close-btn {
+  padding: 1.4rem;
+  margin: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+@media (max-width: 900px) {
+  .feature-overlay video,
+  .feature-overlay img {
+    max-width: 90vw;
+    padding: 0;
+  }
+}
+</style>
+  <div class="feature-overlay" id="overlay-decompile" popover>
+    <div class="popover-content">
+	  <h3>Recompile decompiled code</h3>
+	  <img src="assets/class-decomp-recomp.gif"/>
+	  <p>Recaf lets you recompile code even if you don't have the required dependencies added to the workspace. It may sound like magic but with a little bit of analysis of the existing
+	  bytecode, we are able to produce lightweight <i>"phantom"</i> classes modeling the structure of classes that are missing from the workspace. The rest is plain old <code>javac</code>.
+	  You're still on the hook for errors though. We can't magic away compilation errors like missing semi-colons or wrong type assignments.</p>
+      <center><button class="close-btn" popovertarget="overlay-decompile" popovertargetaction="hide">Close</button></center>
+    </div>
+  </div>
+  <div class="feature-overlay" id="overlay-assembler" popover>
+    <div class="popover-content">
+	  <h3>Edit bytecode with ease</h3>
+	  <img src="assets/method-assembler-access.gif"/>
+	  <p>Right click on the name of any class, field, or method you want to edit, and then select <i>"Edit > Edit with assembler"</i>.
+	  If you're looking at obfuscated code that breaks the contextual Java parser, you can also right click on items in the <i>"Fields &amp; methods"</i> tab.
+	  Doing this will open a new assembler tab.</p>
+	  <p>Recaf's assembler comes with a number of quality of life features to make working with bytecode as user-friendly as possible.</p>
+	  
+	  <h3>Named variables and labels</h3>
+	  <p>Generally speaking, variable names and labels are strictly metadata that have no attachment with the execution of your program.
+	  However trying to keep track of what variable slots hold what can get tedious, so the assembler represents all variable access through names.
+	  The same idea applies for labels. Rather than numbers we go for an A-Z incrementing pattern.</p>
+	  
+	  <h3>Control flow visualization</h3>
+	  <img src="assets/method-assembler-control-flow-lines.png"/>
+	  <p>As pictured above, you can visually follow control flow in the assembler with connecting lines.
+	  By default, these only show up when you click on an instruction that affects control flow.
+	  You can configure them to show up all the time, and also whether to filter the lines shown to only display lines connecting to the current selected instruction</p>
+	  
+	  <h3>Stack &amp; local variable analysis</h3> 
+	  <video controls src="assets/method-assembler-analyzer.mp4"></video>
+	  <p>When you are looking at code with constant &amp; inferrable values, the assembler allows you to inspect the state of those values
+	  on the stack and in any local variable slots as you move through the method. Simply click a line or use the arrow keys to move through the method logic.</p>
+	  
+	  <h3>A library of common bytecode patterns, ready for copy &amp; paste</h3>
+	  <video controls src="assets/method-assembler-snippets.mp4"></video>
+	  <p>Just like with regular programming, its often much easier to copy and paste something that already exists and tweak it to do what you want rather than start from scratch.
+	  Recaf's snippets tab in the assembler comes with a variety of common patterns that you can copy from. If there's something you often use for your own use case you can also add your own.</p>
+	  
+	  <h3>Bytecode generation from snippets of Java source code</h3>
+	  <video controls src="assets/method-assembler-java-to-bytecode.mp4"></video>
+	  <p>If you don't know how to write your changes in the assembler, but can express them as a short Java snippet you can automatically translate that snippet into Java bytecode.
+	  This tool gives you access to the current class's members and also any locally defined variables in the current method.</p>
+	  
+      <center><button class="close-btn" popovertarget="overlay-assembler" popovertargetaction="hide">Close</button></center>
+    </div>
+  </div>
+  <div class="feature-overlay" id="overlay-attach" popover>
+    <div class="popover-content">
+	  <h3>Attach to running Java processes</h3>
+	  <img src="assets/attach-list-mc.png"/>
+	  <p>Recaf integrates with the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/jdk.attach/com/sun/tools/attach/package-summary.html">Attach API</a> to let you make changes to running programs just like you would a random jar file in your downloads folder.
+	  The only restraints are those enforced by the Attach API, which include:</p>
+	  <ul>
+	    <li>No removing existing fields/methods from existing classes</li>
+		<li>No inserting new fields/methods into existing classes</li>
+	  </ul>
+      <center><button class="close-btn" popovertarget="overlay-attach" popovertargetaction="hide">Close</button></center>
+    </div>
+  </div>
+  <div class="feature-overlay" id="overlay-search" popover>
+    <div class="popover-content">
+	  <h3>Search for anything</h3>
+	  <img src="assets/search-types.gif"/>
+	  <p>You can search for almost anything in Recaf, and with a high degree of flexibility.
+	  For strings you can choose between a number of match modes.
+	  Numbers can be specified in decimal, hex, and binary (<code>127</code>, <code>0x7F</code>, <code>0b01111111</code>).</p>
+	  
+	  <h3>Search for structural matches</h3>
+	  <video controls src="assets/search-similar-methods.mp4"></video>
+	  <p>In addition to searching for basic values and patterns as demonstrated before, you can also look for structural matches based on similarity.
+	  The rough idea is that you can create a fingerprint for all methods in the workspace and then compare them between one another and look for the closest matches.
+	  If you pre-filter that search by matching parameter and return types, it can be a pretty quick operation and give you fairly good results.
+	  In this example video, it can find variants of a <code>String</code> decryption routine with a few input tweaks.</p>
+      
+	  <center><button class="close-btn" popovertarget="overlay-search" popovertargetaction="hide">Close</button></center>
+    </div>
+  </div>
+  <div class="feature-overlay" id="overlay-plugins" popover>
+    <div class="popover-content">
+	  <h3>Extend functionality or automate tasks with scripts and plugins</h3>
+	  <video controls src="assets/plugin-example-mcp-agent-crackme.mp4"></video>
+	  <p>Recaf is designed with modularity in mind. Every feature in Recaf is exposed through dependency injection and can be utilized by both simple scripts and complex plugins.
+	  To demonstrate how you can string together multiple Recaf features, I recorded this short video which exposes them to AI tools via <i>Model Context Protocol</i>.
+	  The plugin creates wrappers around a number of Recaf's features and just does some basic repackaging and with that, its able to facilitate automated analysis like this.</p>
+      <center><button class="close-btn" popovertarget="overlay-plugins" popovertargetaction="hide">Close</button></center>
+    </div>
+  </div>
+  <div class="feature-overlay" id="overlay-deobfuscation" popover>
+    <div class="popover-content">
+	  <h3>Deobfuscate code</h3>
+	  <video controls src="assets/deobfuscate-opaques.mp4"></video>
+	  <p>Recaf comes with a varity of transformers which can be applied to your workspace that tackle common obfuscation patterns.
+	  In the video you can see how the transformers are selected and applied in order to significantly clean up the obfuscated program.</p>
+	  
+	  <h3>Automatically rename junk symbols</h3>
+	  <img src="assets/mapping-generator.png"/>
+	  <p>If you're looking at a program that uses a really annoying naming convention you can easily normalize any relevant symbols via the mapping-generator.
+	  The mapping generator lets you specify rules for matching symbol names and then maps them to a simple incrementing naming scheme.</p>
+	  
+	  <h3>Or manually rename symbols</h3>
+	  <img src="assets/mapping-manual-on-method.png"/>
+	  <p>Of course, if you wish to manually rename things you just need to right click on the class/field/method name and select <i>"rename"</i>.
+	  If you tend to rename things often, it can be bound to a keybind and defaults to <code>ALT + R</code>.</p>
+	  
+	  <h3>Handle protected JAR files</h3>
+	  <p>I already hear you asking <i>"Aren't JAR files just ZIP files?"</i> and you'd be correct. However, you need to consider that the ZIP file format
+	  isn't as simple as you'd think, and lots of programs technically do not read them in the way outlined by the spec. Java has its own built in ZIP
+	  parser that gets used when you use <code>java -jar input.jar</code> and it has a number of fun edge cases.</p>
+	  <p>If you're interested, there are some samples over at: <a href="user/obfuscation/zip.html">Jar / Zip Obfuscation</a></p>
+	  <p>Go ahead and try opening some of those in other tools.</p>
+	  
+      <center><button class="close-btn" popovertarget="overlay-deobfuscation" popovertargetaction="hide">Close</button></center>
+    </div>
+  </div>
+</section>
+
+</section>
+<section class="workflow-section">
+<!--
+ TODO:
+1. Open a JAR/APK/class directory
+2. Browse classes and resources
+3. Decompile or inspect bytecode
+4. Edit Java or assembler
+5. Save/export/patch live process
+-->
+</section>
+<section class="use-case-section">
+<style>
+.use-case-section {
+  background: rgb(25, 26, 30);
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+.use-case-section h3 {
+  color: rgb(245, 247, 251);
+}
+
+/* Header */
+.use-case-section .section-heading {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+.use-case-section h2 {
+  font-size: 3rem;
+  margin: 0;
+  color: rgb(245, 247, 251);
+}
+
+/* Grid layout / elements */
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.user-grid p {
+  margin: 1rem auto 0;
+  max-width: 620px;
+  line-height: 1.7;
+}
+.user-card {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+  align-items: top; 
+  overflow: hidden;
+  padding: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+.user-card h3 {
+  margin: 0 0 0.55rem;
+}
+.user-card p {
+  margin: 0;
+  line-height: 1.65;
+  color: rgb(180, 186, 192);
+  min-height: 3em; /* Hack to make things top-aligned by forcing items to be ~3 lines tall */
+}
+
+@media (max-width: 620px) {
+  .user-section {
+    padding: 4rem 1rem;
+  }
+
+  .user-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+  <div class="section-heading">
+    <h2>Common use-cases</h2>
+  </div>
+  <div class="user-grid">
+    <div class="user-card">
+      <h3>Reverse engineering</h3>
+      <p>Understand unfamiliar Java applications by browsing classes, decompiling methods, tracing references, and renaming symbols.</p>
+    </div>
+    <div class="user-card">
+      <h3>Malware analysis</h3>
+      <p>Safely inspect suspicious JARs, loaders, rats, and obfuscated bytecode with decompilers, bytecode views, search, and deobfuscation tools.</p>
+    </div>
+    <div class="user-card">
+      <h3>Java modding</h3>
+      <p>Patch application behavior, edit classes, replace resources, and export modified builds for clients, games, tools, or internal applications.</p>
+    </div>
+    <div class="user-card">
+      <h3>Live debugging & patching</h3>
+      <p>Attach to running JVM processes, redefine classes, test changes quickly, and shorten the edit-build-restart loop.</p>
+    </div>  
+  </div>
+</div>
+<section class="starting-section">
+<style>
+.starting-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.starting-card {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+  align-items: top; 
+  overflow: hidden;
+  padding: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+.starting-card h3 {
+  margin: 0 0 0.55rem;
+}
+</style>
+  <br><br><br>
+  <div class="section-heading">
+    <h2>Getting started</h2>
+  </div>
+  <div class="starting-grid">
+    <div class="starting-card">
+	   <h3>User guide</h3>
+	   <p>The <a href="user/index.html">user guide</a> covers how to use Recaf from an end-user's perspective.
+	   This includes how to use its features, and any relevant topical knowledge that may be relevant.</p>
+	</div>
+	<div class="starting-card">
+	   <h3>Developer guide</h3>
+	   <p>The <a href="dev/index.html">developer guide</a> covers how Recaf operates and how to use its features,
+	   offering example code snippets for each feature. If you want to make a plugin/script you'll want to read this.</p>
+	</div>
+	<div class="starting-card">
+	   <h3>Source on GitHub</h3>
+	   <p>Curious how something works? You could open Recaf inside of Recaf, but its easier just to read
+	   <a href="https://github.com/Col-E/Recaf/">the source on GitHub</a>. Its also where you can report bugs or request new features.</p>
+	</div>
+	<div class="starting-card">
+	   <h3>Plugin template project</h3>
+	   <p>The <a href="https://github.com/Recaf-Plugins/Recaf-4x-plugin-workspace">template plugin</a> showcases how to set up a simple
+	   Java project that can be used to make Recaf plugins. It comes with a few gradle helper tasks to immediately build and launch Recaf with your plugin too.</p>
+	</div>
+	<div class="starting-card">
+	   <h3>In-app tutorial</h3>
+	   <p>Recaf has a tutorial built into the application. You should see it nagging you on the welcome panel if you haven't already completed it.
+	   You can access it any time you want from the menu bar via <i>"Help > Tutorial"</i>.</p>
+	</div>
+	<div class="starting-card">
+	   <h3>Topical JVM knowlege</h3>
+	   <p>While its not strictly neccessary, it does help to have a basic understanding of Java and the underlying <a href="https://docs.oracle.com/javase/specs/jvms/se25/html/jvms-4.html">class file format</a>.</p>
+	</div>
+  </div>
+</section>
 </body>
 </html>
