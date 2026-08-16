@@ -6,9 +6,9 @@ A brief overview of the major dependencies Recaf uses in each module.
 
 **JVM Bytecode Manipulation**: Recaf uses [ASM](https://asm.ow2.io/) and [CafeDude](https://github.com/Col-E/CAFED00D) to parse bytecode. Most operations will be based on ASM since heavily abstracts away the class file format, making what would otherwise be tedious work simple. CafeDude is used for lower level operations and patching classes that are not compliant with ASM.
 
-**Android to Java Conversion**: Recaf uses [dex-translator](https://github.com/Col-E/dex-translator/) to map the Dalvik bytecode of classes into JVM bytecode. This process is a bit lossy, but allows the use of JVM tooling _(like the different decompilers)_ on Android content.
+**Android to Java Conversion**: Recaf uses [Dex](https://github.com/jumanji144/Dex) to map the Dalvik bytecode of classes into JVM bytecode. This process is a bit lossy, but allows the use of JVM tooling _(like the different decompilers)_ on Android content.
 
-**Android Dalvik Bytecode Manipulation**: We are currently investigating on how to handle Dalvik manipulation.
+**Assembler/Disassembler**: Recaf uses [Jasm](https://github.com/jumanji144/Jasm) for low-level JVM and Dalvik bytecode assembly and disassembly in the assembler. Jasm wraps around ASM for JVM bytecode, and Dex for Dalvik bytecode.
 
 **ZIP Files**: Recaf uses [LL-Java-Zip](https://github.com/Col-E/LL-Java-Zip) to read ZIP files. The behavior of LL-Java-Zip is configurable and can mirror interpreting archives in different ways. This is important for Java reverse engineering since the JVM itself has some odd parsing quirks that most other libraries do not mirror. More information about this can be read on the LL-Java-Zip project page.
 
