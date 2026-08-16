@@ -20,20 +20,20 @@ Workspace workspace = workspaceManager.getCurrent();
 
 ## Setting the workspace
 
-Assigning a workspace is done via `setWorkspace(Workspace)`. You can "unset" or close a workspace by passing `null` or by calling `closeCurrent()`.
+Assigning a workspace is done via `setCurrent(Workspace)`. You can "unset" or close a workspace by passing `null` or by calling `closeCurrent()`.
 
 ```java
 Workspace workspace = // ..
-workspaceManager.setWorkspace(workspace);
+workspaceManager.setCurrent(workspace);
 
 // These two calls behave the same
 workspaceManager.closeCurrent();
-workspaceManager.setWorkspace(null);
+workspaceManager.setCurrent(null);
 ```
 
-In case the case where a `WorkspaceCloseCondition` has been registered the request to close a workspace can be blocked. Consider that when you are using the GUI and you close a file you are asked _"Are you sure?"_ before closing the workspace. To ensure any potential cause of closing the workspace is handled this is achieved by a registering a `WorkspaceCloseCondition` in the UI which requires answering the prompt before allowing the close to occur.
+In the case where a `WorkspaceCloseCondition` has been registered the request to close a workspace can be blocked. Consider that when you are using the GUI and you close a file you are asked _"Are you sure?"_ before closing the workspace. To ensure any potential cause of closing the workspace is handled this is achieved by a registering a `WorkspaceCloseCondition` in the UI which requires answering the prompt before allowing the close to occur.
 
-While it is _not recommended_ you can circumvent such conditions by using `setCurrentIgnoringConditions(Workspace)` instead of `setWorkspace(Workspace)`.
+While it is _not recommended_ you can circumvent such conditions by using `setCurrentIgnoringConditions(Workspace)` instead of `setCurrent(Workspace)`.
 
 ## Listening for new workspaces
 

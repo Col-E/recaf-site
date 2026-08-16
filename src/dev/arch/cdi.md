@@ -93,15 +93,15 @@ Recaf has multiple decompiler implementations built in. Lets look at a simplifie
 
 ```java
 @ApplicationScoped
-class DecompileManager {
-    @Inject DecompileManager(Instance<Decompiler> implementations) {
+class DecompilerManager {
+    @Inject DecompilerManager(Instance<Decompiler> implementations) {
         for (Decompiler implementation : implementations)
             registerDecompiler(implementation);
     }
 }
 ```
 
-From here, we can define methods in `DecompileManager` to manage which decompile we want to use. Then in the UI, we `@Inject` this `DecompileManager` and use that to interact with `Decompiler` instances rather than directly doing so.
+From here, we can define methods in `DecompilerManager` to manage which decompile we want to use. Then in the UI, we `@Inject` this `DecompilerManager` and use that to interact with `Decompiler` instances rather than directly doing so.
 
 > Can I mix what scopes I inject into a constructor?
 
@@ -132,7 +132,7 @@ Components acting only as views and wrappers to other components can mirror thei
 
 ## Launching Recaf
 
-When Recaf is launched, the `Bootstrap` class is used to initialize an instance of `Recaf`. The `Bootstrap` class creates a CDI container that is configured to automatically discover implementations of the services outlined in the `api` module. Once this process is completed, the newly made CDI container is wrapped in a `Recaf` instance which lasts for the duration of the application.
+When Recaf is launched, the `Bootstrap` class is used to initialize an instance of `Recaf`. The `Bootstrap` class creates a CDI container that is configured to automatically discover implementations of the services outlined in the `recaf-core` module _(via a generated bean index, so that headless mode does not initialize any UI beans)_. Once this process is completed, the newly made CDI container is wrapped in a `Recaf` instance which lasts for the duration of the application.
 
 ## Why are so many UI classes `@Dependent` scoped?
 
