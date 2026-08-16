@@ -1,6 +1,6 @@
 # Diagnosing improper JavaFX thread access
 
-With JavaFX many operations are expected to be done on the application thread. This isn't strictly enforced by the library in most cases, but not doing so can lead to non-deterministic behaviors or even exceptions. Finding out where these occur just by looking at code isn't easy when projects get beyond a certain size, so to facilitate this we created [JavaFX Access Agent](https://github.com/Col-E/javafx-access-agent). Its a Java agent that you add to your VM options when running Recaf that logs where improper thread access occurs. The agent is configured in Recaf's [`Main.java`](https://github.com/Col-E/Recaf/blob/master/recaf-ui/src/main/java/software/coley/recaf/Main.java) to print to std-err.
+With JavaFX many operations are expected to be done on the application thread. This isn't strictly enforced by the library in most cases, but not doing so can lead to non-deterministic behaviors or even exceptions. Finding out where these occur just by looking at code isn't easy when projects get beyond a certain size, so to facilitate this we created [JavaFX Access Agent](https://github.com/Col-E/javafx-access-agent). Its a Java agent that you add to your VM options when running Recaf that logs where improper thread access occurs. The agent is configured in Recaf's [`UIMain.java`](https://github.com/Col-E/Recaf/blob/master/recaf-ui/src/main/java/software/coley/recaf/UIMain.java) to print to std-err.
 
 ## Getting the agent
 
