@@ -29,6 +29,22 @@ The mapping generator allows you to specify a series of rules for names to inclu
 
 <figure><img src="../../assets/mapping-generator.png" alt="mapping-generator" /><p>The mapping generator will generically name classes, fields, and methods that match user-provided filters</p></figcaption></figure>
 
+## Similarity mapping
+
+If you have two versions of an application, one unobfuscated and one obfuscated _(or any two builds you want to compare)_ you can use Recaf's similarity mapping feature to generate mappings between them automatically. It is accessed via *'Mappings > Similarity mapping'* in the menu bar.
+
+<video src="../../assets/mapping-similarity.mp4" controls></video>
+
+The feature compares the classes of the primary resource against the classes of another resource in the workspace, which you select in the window. Classes are scored on structural similarity such as their declared fields, methods, and instruction patterns. Matches are accepted when the similarity exceeds the configured thresholds, and mappings are then generated for the matched classes and their members.
+
+The options in the window control:
+
+- **Class similarity threshold**: The minimum structural similarity percentage for a class match to be accepted.
+- **Certainty gap**: The minimum percentage gap between the best matching class and the runner-up. Raising this reduces the chance of accepting a match when multiple candidates look similar.
+- **Member similarity threshold**: The minimum similarity percentage for individual fields and methods to be mapped within a matched class.
+
+Once a run completes you get a preview of the matched classes and can apply the results to the workspace. Afterwards the resulting mappings can be exported like any other _(see "Saving your mappings" below)_.
+
 ## Manual renaming
 
 Interacting with classes, fields, and methods allows you to rename them. When viewing decompiled code, rename on the name of the declared item. If the context can be resolved a context menu will appear and within this menu is the option to *"Rename"*. 
