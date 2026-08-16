@@ -6,6 +6,11 @@ After you load a workspace, Recaf will do some basic analysis of its contents an
 - The entry points
   - For regular jar files, `public static void main(String[] args) { ... }`
   - For Android applications, listed `Activity` subclasses defined in the application manifest
+  - For Minecraft server plugin/mod platforms, the declared initializer classes:
+    - Fabric mods via their `ModInitializer` implementations
+    - Forge/NeoForge mods via their mod initializer implementations
+    - Bukkit/Spigot/Paper plugins via their `JavaPlugin` implementations
+    - Velocity plugins via their plugin main class implementations
 - The required permissions for Android applications
 - Indicator for anti-reverse engineering obfuscation patterns
   - Offers a single-click button to remedy the patterns 
