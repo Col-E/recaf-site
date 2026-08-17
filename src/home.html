@@ -421,6 +421,12 @@
 .feature-overlay:popover-open {
   opacity: 1;
 }
+
+/* Hide the page scrollbar while a feature overlay is open. The overlay covers the
+   viewport and provides its own scrolling, so the page behind it does not need to. */
+html:has(.feature-overlay:popover-open) {
+  overflow: hidden;
+}
 .feature-overlay video,
 .feature-overlay img {
   max-width: 94vw;
