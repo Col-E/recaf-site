@@ -32,6 +32,7 @@ ClassContextMenuAdapter adapter = new ClassContextMenuAdapter() {
                                  @Nonnull JvmClassInfo info) {
       common(menu, source, workspace, resource, bundle, info);
    }
+
    @Override
    public void adaptAndroidClassMenu(@Nonnull ContextMenu menu,
                                      @Nonnull ContextSource source,
@@ -41,6 +42,7 @@ ClassContextMenuAdapter adapter = new ClassContextMenuAdapter() {
                                      @Nonnull AndroidClassInfo info) {
       common(menu, source, workspace, resource, bundle, info);
    }
+
    private void common(@Nonnull ContextMenu menu,
                        @Nonnull ContextSource source, 
                        @Nonnull Workspace workspace,
