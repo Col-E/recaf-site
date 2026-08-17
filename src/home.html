@@ -170,112 +170,108 @@
 <style>
 .main-container {
   position: relative;
+  box-sizing: border-box;
   width: 100%;
-  height: 64rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: clamp(30rem, 68svh, 52rem);
+  display: grid;
+  place-items: center;
+  padding: clamp(2rem, 5vw, 4rem) 1rem;
+  overflow: hidden;
+  isolation: isolate;
+  background: #000;
 }
+
 .main-container video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: -1; /* Pushes video behind content */
-}
-.main-container img {
-  max-width: 35vw;
-}
-.main-container .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  z-index: -2; /* Pushes video behind content */
+}
+
+.main-container img {
+  display: block;
+  width: min(100%, 60rem);
+  height: auto;
+  margin-inline: auto;
+}
+
+.main-container .overlay {
+  position: absolute;
+  inset: 0;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(10px);
-  z-index: 0;
+  z-index: -1;
 }
+
 .main-container .content {
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
+  width: min(100%, 64rem);
+  display: grid;
+  justify-items: center;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  padding: 0 5px 5px 5px;
   text-align: center;
   font-family: sans-serif;
-  max-width: 50%;
-  padding: 0px;
-  padding-top: 3rem;
-  padding-bottom: 2rem;
 }
-.desktop-only {
-  display: none;  
+
+#download-button.desktop-only {
+  display: none;
 }
+
 #download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   cursor: pointer;
-  font-size: 20px;
-  padding: 20px 40px;
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  padding: 1.25rem 2rem;
+  color: inherit;
+  text-decoration: none;
   background: linear-gradient(to bottom left, #001831, #000);
   border: 1px solid rgb(50, 55, 60);
   border-radius: 40px;
-  -webkit-transition: all 1s;
-        transition: all 1s; 
+  transition: background 0.3s, border-color 0.3s;
 }
+
 #download-button:hover {
   background: linear-gradient(to bottom left, #11569d, #020204);
-  border: 1px solid rgb(86, 119, 153);
+  border-color: rgb(86, 119, 153);
 }
+
 #download-button::before {
   content: '';
-  background-image: url('assets/download.svg');
-  background-repeat: no-repeat;
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  margin-top: -15px;
-  margin-bottom: -10px;
-  margin-left: -25px;
-  margin-right: 15px;
+  flex: 0 0 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: url('assets/download.svg') center / contain no-repeat;
 }
-@media (max-width: 900px) {
+
+@media (max-width: 600px) {
   .main-container {
-    height: 30rem;
-  }
-  .main-container img {
-    max-width: 90%;
-  }
-  .main-container .content {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    font-family: sans-serif;
-    max-width: 80%;	
+    min-height: 38rem;
   }
 }
+
 @media screen and (min-width: 768px) {
-  .desktop-only {
-    display: inherit;  
+  #download-button.desktop-only {
+    display: inline-flex;
   }
 }
 </style>
 <div class="main-container">
-  <video autoplay muted loop playsinline class="background-video">
+  <video autoplay muted loop playsinline class="background-video" aria-hidden="true">
       <source src="assets/matrix-jvm-text-bg.mp4" type="video/mp4">
       Your browser does not support the video tag.
   </video>
   <div class="overlay"></div>
   <div class="content">
-	  <img src="assets/generic-pic-of-recaf.png"/>
-      <p>Recaf is an open-source Java bytecode editor that simplifies the process of editing compiled Java applications.</p>
-	  <div class="desktop-only">
-        <center>
-          <a href="https://github.com/Col-E/Recaf-Launcher/releases"><button id="download-button">Download Launcher</button></a>
-        </center>
-	  </div>
+	  <img src="assets/generic-pic-of-recaf.png" alt="Recaf application interface"/>
+      <p>Recaf is an open-source Java bytecode editor that simplifies the process of analyzing and editing compiled Java applications.</p>
+      <a href="https://github.com/Col-E/Recaf-Launcher/releases" class="desktop-only" id="download-button">Download Launcher</a>
   </div>
 </div>
 
