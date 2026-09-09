@@ -110,3 +110,5 @@ public class LoadContentScript {
 ```
 
 For the list of available services, see [the service lists](../services/index.html).
+
+For copy-paste examples of common reverse-engineering tasks, see [script examples](examples.md).
